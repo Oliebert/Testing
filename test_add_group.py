@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 from selenium.webdriver.firefox.webdriver import WebDriver
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 import time, unittest
+
+
 
 def is_alert_present(wd):
     try:
@@ -12,12 +15,17 @@ def is_alert_present(wd):
 
 class test_add_group(unittest.TestCase):
     def setUp(self):
-        self.wd = WebDriver()
+        self.wd = WebDriver(firefox_binary="C:\\Program Files\\Mozilla Firefox\\firefox.exe")
         self.wd.implicitly_wait(60)
     
     def test_test_add_group(self):
+
+
         success = True
         wd = self.wd
+        #binary = FirefoxBinary('C:\\Program Files\\Mozilla Firefox\\firefox.exe')
+        #wd = WebDriver.Firefox(firefox_binary=binary)
+        #wd = WebDriver(firefox_binary="C:\\Program Files\\Mozilla Firefox\\firefox.exe")
         wd.get("http://localhost/addressbook/group.php")
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
