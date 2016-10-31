@@ -74,7 +74,7 @@ class test_add_group(unittest.TestCase):
         wd.find_element_by_name("pass").clear()
         wd.find_element_by_name("pass").send_keys(password)
         wd.find_element_by_xpath("//form[@id='LoginForm']/input[3]").click()
-        wd.find_element_by_xpath("//div[@id='content']//form[normalize-space(.)='']").click()
+
 
     def open_home_page(self, wd):
         wd.get("http://localhost/addressbook/group.php")
