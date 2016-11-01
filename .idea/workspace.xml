@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e5a2953-740f-44da-9e3b-2f5e42db8e66" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test_add_contact.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Testing_training.iml" afterPath="$PROJECT_DIR$/.idea/Testing_training.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_add_contact.py" afterPath="$PROJECT_DIR$/test_add_contact.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Описание_методов.txt" afterPath="$PROJECT_DIR$/Описание_методов.txt" />
     </list>
     <ignored path="Testing_training.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,7 +27,7 @@
       <file leaf-file-name="test_add_group.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test_add_group.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-780">
+            <state relative-caret-position="289">
               <caret line="17" column="92" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="92" />
               <folding>
                 <element signature="e#24#82#0" expanded="true" />
@@ -36,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_add_contact.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test_add_contact.py">
+      <file leaf-file-name="test_contact.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test_contact.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-628">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state relative-caret-position="191">
+              <caret line="96" column="31" selection-start-line="96" selection-start-column="31" selection-end-line="96" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -78,12 +78,13 @@
         <option value="$PROJECT_DIR$/group.py" />
         <option value="$PROJECT_DIR$/test_add_group.py" />
         <option value="$PROJECT_DIR$/test_add_contact.py" />
+        <option value="$PROJECT_DIR$/test_contact.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="431" />
-    <option name="y" value="44" />
+    <option name="x" value="596" />
+    <option name="y" value="73" />
     <option name="width" value="1075" />
     <option name="height" value="806" />
   </component>
@@ -152,44 +153,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Python.test_add_contact">
-    <configuration default="false" name="Vorlesungsbeispiele" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Testing_training" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Vorlesungsbeispiele.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="vorlesungsbeispiele_classen" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Testing_training" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/vorlesungsbeispiele_classen.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python tests.Unittests in test_contact (1)">
     <configuration default="false" name="py.test in test_add_group" type="tests" factoryName="py.test" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -214,30 +181,6 @@
       <option name="USE_KEYWORD" value="true" />
       <method />
     </configuration>
-    <configuration default="false" name="py.test in test_add_group and test_test_add_group" type="tests" factoryName="py.test" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Testing_training" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="testToRun" value="$PROJECT_DIR$/test_add_group.py" />
-      <option name="keywords" value="test_add_group and test_test_add_group" />
-      <option name="params" value="" />
-      <option name="USE_PARAM" value="false" />
-      <option name="USE_KEYWORD" value="true" />
-      <method />
-    </configuration>
     <configuration default="false" name="test_add_contact" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -253,6 +196,72 @@
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_add_contact.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unittests in test_contact" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Testing_training" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_contact.py" />
+      <option name="CLASS_NAME" value="test_contact" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_CLASS" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unittest test_contact.test_test_contact" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Testing_training" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_contact.py" />
+      <option name="CLASS_NAME" value="test_contact" />
+      <option name="METHOD_NAME" value="test_test_contact" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_METHOD" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unittests in test_contact (1)" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Testing_training" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_contact.py" />
+      <option name="CLASS_NAME" value="test_contact" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_CLASS" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -390,19 +399,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.Vorlesungsbeispiele" />
-      <item index="1" class="java.lang.String" itemvalue="Python.vorlesungsbeispiele_classen" />
-      <item index="2" class="java.lang.String" itemvalue="Python tests.py.test in test_add_group" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.py.test in test_add_group and test_test_add_group" />
-      <item index="4" class="java.lang.String" itemvalue="Python.test_add_contact" />
+      <item index="0" class="java.lang.String" itemvalue="Python tests.py.test in test_add_group" />
+      <item index="1" class="java.lang.String" itemvalue="Python.test_add_contact" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in test_contact" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittest test_contact.test_test_contact" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in test_contact (1)" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.test_add_contact" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.py.test in test_add_group" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.py.test in test_add_group and test_test_add_group" />
-        <item index="3" class="java.lang.String" itemvalue="Python.vorlesungsbeispiele_classen" />
-        <item index="4" class="java.lang.String" itemvalue="Python.Vorlesungsbeispiele" />
+        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in test_contact (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittest test_contact.test_test_contact" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in test_contact" />
+        <item index="3" class="java.lang.String" itemvalue="Python.test_add_contact" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.py.test in test_add_group" />
       </list>
     </recent_temporary>
   </component>
@@ -420,23 +429,23 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="py_test_in_test_add_group - 2016.10.31 at 16h 01m 06s.xml">
-      <configuration name="py.test in test_add_group" configurationId="tests" />
+    <history-entry file="Unittest_test_contact_test_test_contact - 2016.11.01 at 21h 18m 35s.xml">
+      <configuration name="Unittest test_contact.test_test_contact" configurationId="tests" />
     </history-entry>
-    <history-entry file="py_test_in_test_add_group - 2016.10.31 at 16h 01m 52s.xml">
-      <configuration name="py.test in test_add_group" configurationId="tests" />
+    <history-entry file="Unittest_test_contact_test_test_contact - 2016.11.01 at 21h 18m 53s.xml">
+      <configuration name="Unittest test_contact.test_test_contact" configurationId="tests" />
     </history-entry>
-    <history-entry file="py_test_in_test_add_group - 2016.10.31 at 16h 02m 27s.xml">
-      <configuration name="py.test in test_add_group" configurationId="tests" />
+    <history-entry file="Unittest_test_contact_test_test_contact - 2016.11.01 at 21h 19m 25s.xml">
+      <configuration name="Unittest test_contact.test_test_contact" configurationId="tests" />
     </history-entry>
-    <history-entry file="py_test_in_test_add_group - 2016.10.31 at 16h 03m 45s.xml">
-      <configuration name="py.test in test_add_group" configurationId="tests" />
+    <history-entry file="Unittests_in_test_contact - 2016.11.01 at 21h 14m 34s.xml">
+      <configuration name="Unittests in test_contact" configurationId="tests" />
     </history-entry>
-    <history-entry file="py_test_in_test_add_group - 2016.10.31 at 16h 15m 23s.xml">
-      <configuration name="py.test in test_add_group" configurationId="tests" />
+    <history-entry file="Unittests_in_test_contact - 2016.11.01 at 21h 15m 14s.xml">
+      <configuration name="Unittests in test_contact" configurationId="tests" />
     </history-entry>
-    <history-entry file="py_test_in_test_add_group - 2016.10.31 at 16h 24m 11s.xml">
-      <configuration name="py.test in test_add_group" configurationId="tests" />
+    <history-entry file="Unittests_in_test_contact_(1) - 2016.11.01 at 21h 28m 21s.xml">
+      <configuration name="Unittests in test_contact (1)" configurationId="tests" />
     </history-entry>
     <history-entry file="py_test_in_test_add_group - 2016.10.31 at 16h 24m 27s.xml">
       <configuration name="py.test in test_add_group" configurationId="tests" />
@@ -452,15 +461,15 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="431" y="44" width="1075" height="806" extended-state="0" />
-    <editor active="false" />
+    <frame x="596" y="73" width="1075" height="806" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08100289" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20057859" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36158192" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29829985" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34621328" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -695,16 +704,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_add_group.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-780">
-          <caret line="17" column="92" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="92" />
-          <folding>
-            <element signature="e#24#82#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/group.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -713,10 +712,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test_add_group.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="92" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="92" />
+          <folding>
+            <element signature="e#24#82#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test_add_contact.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-628">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state relative-caret-position="1335">
+          <caret line="83" column="50" selection-start-line="18" selection-start-column="2" selection-end-line="83" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_contact.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="96" column="31" selection-start-line="96" selection-start-column="31" selection-end-line="96" selection-end-column="31" />
           <folding />
         </state>
       </provider>
