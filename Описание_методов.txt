@@ -1,0 +1,8 @@
+
+simple usage examples 
+
+http://selenium-python.readthedocs.io/getting-started.html
+
+????????
+
+http://selenium-python.readthedocs.io/locating-elements.html#locating-elements
