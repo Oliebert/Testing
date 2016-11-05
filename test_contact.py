@@ -5,12 +5,7 @@ import unittest
 from contact import Contact
 
 
-def is_alert_present(wd):
-    try:
-        wd.switch_to_alert().text
-        return True
-    except:
-        return False
+
 
 
 class test_contact(unittest.TestCase):
@@ -20,12 +15,12 @@ class test_contact(unittest.TestCase):
 
     def test_contact(self):
         success = True
-        wd = self.wd
-        self.open_home_page(wd)
-        self.login(wd, username="admin", password="secret")
 
-        self.open_contact_page(wd)
-        self.create_contact(wd, Contact(firstname_of_contact="nknnn", middlename_of_contact="khknkhn",
+        self.open_home_page()
+        self.login( username="admin", password="secret")
+
+        self.open_contact_page()
+        self.create_contact(Contact(firstname_of_contact="nknnn", middlename_of_contact="khknkhn",
                                         lastname_of_contact="khknkhn", contactnickname="kbjb",
 
                                         contacttittle="jbjbjhbb", contactcompany="lkmllnm", contactaddress="knkhnkhnkn",
@@ -37,17 +32,17 @@ class test_contact(unittest.TestCase):
                                         contact_email3="jbjb", contact_homepage="nknjn", contact_address2="jjhbknb",
                                         contact_phone2="bbjb"))
 
-        self.logout(wd)
+        self.logout()
         self.assertTrue(success)
 
     def test_empty_contact(self):
         success = True
-        wd = self.wd
-        self.open_home_page(wd)
-        self.login(wd, username="admin", password="secret")
 
-        self.open_contact_page(wd)
-        self.create_contact(wd, Contact(firstname_of_contact="", middlename_of_contact="",
+        self.open_home_page()
+        self.login( username="admin", password="secret")
+
+        self.open_contact_page()
+        self.create_contact( Contact(firstname_of_contact="", middlename_of_contact="",
                                         lastname_of_contact="", contactnickname="",
 
                                         contacttittle="", contactcompany="", contactaddress="",
@@ -59,13 +54,15 @@ class test_contact(unittest.TestCase):
                                         contact_email3="", contact_homepage="", contact_address2="",
                                         contact_phone2=""))
 
-        self.logout(wd)
+        self.logout()
         self.assertTrue(success)
 
-    def logout(self, wd):
+    def logout(self):
+        wd = self.wd
         wd.find_element_by_link_text("Logout").click()
 
-    def create_contact(self, wd, contact):
+    def create_contact(self,  contact):
+        wd = self.wd
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
         wd.find_element_by_name("firstname").send_keys(contact.firstname_of_contact)
@@ -121,10 +118,12 @@ class test_contact(unittest.TestCase):
         wd.find_element_by_name("notes").clear()
         wd.find_element_by_name("notes").send_keys(contact.contact_notes)
 
-    def open_contact_page(self, wd):
+    def open_contact_page(self):
+        wd = self.wd
         wd.find_element_by_link_text("add new").click()
 
-    def login(self, wd, username, password):
+    def login(self,  username, password):
+        wd = self.wd
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys(username)
@@ -133,7 +132,8 @@ class test_contact(unittest.TestCase):
         wd.find_element_by_name("pass").send_keys(password)
         wd.find_element_by_xpath("//form[@id='LoginForm']/input[3]").click()
 
-    def open_home_page(self, wd):
+    def open_home_page(self):
+        wd = self.wd
         wd.get("http://localhost/addressbook/")
 
     def tearDown(self):
