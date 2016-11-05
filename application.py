@@ -6,6 +6,7 @@ class Application:
         self.wd = WebDriver(firefox_binary="C:\\Program Files\\Mozilla Firefox\\firefox.exe")
         self.wd.implicitly_wait(60)
 
+
     def logout(self):
         wd = self.wd
         wd.find_element_by_link_text("Logout").click()
@@ -16,7 +17,6 @@ class Application:
 
     def group_creation(self, group):
         wd = self.wd
-        self.open_groups_page()
         # init group creation
         wd.find_element_by_name("new").click()
         # fill group form
@@ -31,7 +31,6 @@ class Application:
         wd.find_element_by_name("group_footer").send_keys(group.footer)
         # submit group creation
         wd.find_element_by_name("submit").click()
-        self.return_to_group()
 
     def open_groups_page(self):
         wd = self.wd
