@@ -71,7 +71,7 @@ class Application_For_Contact:
         wd = self.wd
         wd.find_element_by_link_text("add new").click()
 
-    def login(self, username, password):
+    def login(self,  username, password):
         wd = self.wd
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
@@ -84,6 +84,7 @@ class Application_For_Contact:
     def open_home_page(self):
         wd = self.wd
         wd.get("http://localhost/addressbook/")
+
 
     def destroy(self):
         self.wd.quit()
