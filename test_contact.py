@@ -4,23 +4,26 @@ from selenium.webdriver.firefox.webdriver import WebDriver
 import unittest
 from applcation_for_contact import Application_For_Contact
 from contact import Contact
+import pytest
 
 
 
+@pytest.fixture
+def app(request):
+    fixture=Application_For_Contact()
+    request.addfinalizer(fixture.destroy)
+    return fixture
 
 
-class test_contact(unittest.TestCase):
-    def setUp(self):
-        self.app=Application_For_Contact()
 
-    def test_contact(self):
+def test_contact(app):
 
 
-        self.app.open_home_page()
-        self.app.login( username="admin", password="secret")
+    app.open_home_page()
+    app.login( username="admin", password="secret")
 
-        self.app.open_contact_page()
-        self.app.create_contact(Contact(firstname_of_contact="nknnn", middlename_of_contact="khknkhn",
+    app.open_contact_page()
+    app.create_contact(Contact(firstname_of_contact="nknnn", middlename_of_contact="khknkhn",
                                         lastname_of_contact="khknkhn", contactnickname="kbjb",
 
                                         contacttittle="jbjbjhbb", contactcompany="lkmllnm", contactaddress="knkhnkhnkn",
@@ -32,17 +35,17 @@ class test_contact(unittest.TestCase):
                                         contact_email3="jbjb", contact_homepage="nknjn", contact_address2="jjhbknb",
                                         contact_phone2="bbjb"))
 
-        self.app.logout()
+    app.logout()
 
 
-    def test_empty_contact(self):
-        success = True
+def test_empty_contact(app):
 
-        self.app.open_home_page()
-        self.app.login( username="admin", password="secret")
 
-        self.app.open_contact_page()
-        self.app.create_contact( Contact(firstname_of_contact="", middlename_of_contact="",
+    app.open_home_page()
+    app.login( username="admin", password="secret")
+
+    app.open_contact_page()
+    app.create_contact( Contact(firstname_of_contact="", middlename_of_contact="",
                                         lastname_of_contact="", contactnickname="",
 
                                         contacttittle="", contactcompany="", contactaddress="",
@@ -54,13 +57,9 @@ class test_contact(unittest.TestCase):
                                         contact_email3="", contact_homepage="", contact_address2="",
                                         contact_phone2=""))
 
-        self.app.logout()
-        self.assertTrue(success)
+    app.logout()
 
 
-    def tearDown(self):
-        self.app.destroy()
 
 
-if __name__ == '__main__':
-    unittest.main()
+
