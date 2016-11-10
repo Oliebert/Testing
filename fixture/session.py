@@ -3,13 +3,12 @@ ein Class for login und logout session
 '''
 
 class SessionHelper:
+
     def __init__(self, app):
         self.app = app
 
     def login(self, username, password):
-        wd = self.app.wd # Zugang zu Driver wird benötigt
-
-
+        wd = self.app.wd                       # Zugang zu Driver wird benötigt
         self.app.open_home_page()
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()

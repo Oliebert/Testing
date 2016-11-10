@@ -6,7 +6,7 @@ from fixture.contact import ContactHelper
 class Application:
 
     def __init__(self):
-        self.wd = WebDriver(firefox_binary="C:\\Program Files\\Mozilla Firefox\\firefox.exe")
+        self.wd = WebDriver()#firefox_binary="C:\\Program Files\\Mozilla Firefox\\firefox.exe"
         self.wd.implicitly_wait(60)
         self.session = SessionHelper(self)
 
