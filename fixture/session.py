@@ -9,7 +9,7 @@ class SessionHelper:
 
     def login(self, username, password):
         wd = self.app.wd                       # Zugang zu Driver wird benötigt
-        self.app.open_home_page()
+        self.app.navigation.open_home_page()
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys(username)
@@ -22,6 +22,3 @@ class SessionHelper:
     def logout(self):
         wd = self.app.wd
         wd.find_element_by_link_text("Logout").click()
-
-
-
