@@ -69,3 +69,6 @@ class ContactHelper:
         wd.find_element_by_name("notes").click()
         wd.find_element_by_name("notes").clear()
         wd.find_element_by_name("notes").send_keys(contact.contact_notes)
+
+    #def delete_first_contact():
+
