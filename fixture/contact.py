@@ -9,6 +9,15 @@ class ContactHelper:
         wd = self.app.wd
         wd.find_element_by_link_text("add new").click()
 
+    def delete_first_contact(self):
+        wd = self.app.wd
+        wd.find_element_by_name("selected[]").click()
+        # click Delete button
+        wd.find_element_by_xpath("//div[@id='content']/form[2]/div[2]/input").click()
+        # confirm deletion
+        wd.switch_to_alert().accept()
+
+
 
     def create_contact(self,  contact):
 
@@ -82,4 +91,5 @@ class ContactHelper:
         wd.find_element_by_name("notes").send_keys(contact.contact_notes)
 
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
-        self.app.navigation.return_to_home_page()
+       # self.app.navigation.return_to_home_page()
+

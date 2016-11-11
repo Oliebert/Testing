@@ -14,7 +14,7 @@ class Application:
                                                     #driver wird ein einziges Mal inizilisiert bei der Erschaffung einer Fixture.
                                                     #ein Helper übernimmt einen Link auf ein Objekt der Klasse Application
                                                     #was uns die Möglichkeit gibt über einen Helper uns zu anderem wenden
-        self.group= GroupHelper(self)
+        self.group = GroupHelper(self)
 
         self.contact = ContactHelper(self)
 
