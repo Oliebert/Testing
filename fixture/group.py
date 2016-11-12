@@ -1,12 +1,12 @@
-'''
-ein Class für Hilfsmethoden
-'''
+
+# ein Class für Hilfsmethoden
+
+
 class GroupHelper:
 
-    def __init__(self,app):
-        self.app=app
 
-
+    def __init__(self, app):
+        self.app = app
 
     def return_to_group(self):
         wd = self.app.wd
@@ -56,7 +56,7 @@ class GroupHelper:
         # submit group creation
         wd.find_element_by_name("submit").click()
         self.return_to_group()
-       # self.app.navigation.return_to_home_page_from_groups_page()
+        # self.app.navigation.return_to_home_page_from_groups_page()
 
     def open_groups_page(self):
         wd = self.app.wd
