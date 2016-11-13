@@ -88,6 +88,8 @@ class ContactHelper:
 
         wd.find_element_by_xpath("//div[@id='content']/form[1]/input[22]").click()
 
+        self.app.navigation.return_to_home_page()
+
     def create_contact(self,  contact):
         wd = self.app.wd
         self.open_contact_page()
@@ -158,5 +160,5 @@ class ContactHelper:
         wd.find_element_by_name("notes").send_keys(contact.contact_notes)
 
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
-       # self.app.navigation.return_to_home_page()
+        self.app.navigation.return_to_home_page()
 

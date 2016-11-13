@@ -9,8 +9,5 @@ class NavigationHelper:
 
     def return_to_home_page(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("home page").click()
-
-    def return_to_home_page_from_groups_page (self):
-        wd = self.app.wd
         wd.find_element_by_link_text("home").click()
+
