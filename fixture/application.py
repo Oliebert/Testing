@@ -12,7 +12,7 @@ class Application:
         self.session = SessionHelper(self)
 
                                                     #driver wird ein einziges Mal inizilisiert bei der Erschaffung einer Fixture.
-                                                  #ein Helper übernimmt einen Link auf ein Objekt der Klasse Application
+                                                    #ein Helper übernimmt einen Link auf ein Objekt der Klasse Application
                                                     #was uns die Möglichkeit gibt über einen Helper uns zu anderem wenden
         self.group = GroupHelper(self)
 
@@ -22,7 +22,7 @@ class Application:
 
     def is_valid(self):
         try:
-            self.wd.current_url
+            self.wd.current_url                     #URL of the current loaded page
             return True
         except:
             return False

@@ -5,18 +5,9 @@ from fixture.application import Application
 
 from model.contact import Contact
 
-
-
-
-
 def test_add_contact(app):
 
-
-
-
-
-
-    app.contact.create_contact(Contact(firstname_of_contact="nknnn", middlename_of_contact="khknkhn",
+   app.contact.create_contact(Contact(firstname_of_contact="nknnn", middlename_of_contact="khknkhn",
                                         lastname_of_contact="khknkhn", contactnickname="kbjb",
 
                                         contacttittle="jbjbjhbb", contactcompany="lkmllnm", contactaddress="knkhnkhnkn",
@@ -29,14 +20,7 @@ def test_add_contact(app):
                                         contact_phone2="bbjb"))
 
 
-
-
 def test_add_empty_contact(app):
-
-
-
-
-
 
     app.contact.create_contact( Contact(firstname_of_contact="", middlename_of_contact="",
                                         lastname_of_contact="", contactnickname="",
