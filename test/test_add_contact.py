@@ -28,7 +28,7 @@ def test_add_contact(app):
                                         contact_email3="jbjb", contact_homepage="nknjn", contact_address2="jjhbknb",
                                         contact_phone2="bbjb"))
 
-    app.session.logout()
+
 
 
 def test_add_empty_contact(app):
@@ -50,4 +50,4 @@ def test_add_empty_contact(app):
                                         contact_email3="", contact_homepage="", contact_address2="",
                                         contact_phone2=""))
 
-    app.session.logout()
+
