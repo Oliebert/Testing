@@ -2,9 +2,13 @@
 from model.contact import Contact
 
 
-'''def test_edit_contact(app):
+def test_edit_contact(app):
 
-     app.contact.edit_contact(Contact(firstname_of_contact="firstname_changed", middlename_of_contact="middlename_changed",
+    if app.contact.count_contact() == 0: # falls keine Gruppe gibt´s
+
+        app.contact.create_contact(Contact(firstname_of_contact="test_firstname", mobilenumber="test_mobilnumber"))
+
+    app.contact.edit_first_contact(Contact(firstname_of_contact="firstname_changed", middlename_of_contact="middlename_changed",
                                         lastname_of_contact="lastname_changed", contactnickname="contactnickname_changed",
 
                                         contacttittle="contacttittle_changed", contactcompany="contactcompany_changed", contactaddress="contactaddress_changed",
@@ -16,12 +20,35 @@ from model.contact import Contact
                                         contact_email3="contact_email3_changed", contact_homepage="contact_homepage_changed", contact_address2="contact_address2_changed",
                                         contact_phone2="contact_phone2_changed"))
 
-    app.session.logout()
+def test_edit_empty_contact(app):
+
+    if app.contact.count_contact() == 0:  # falls keine Gruppe gibt´s
+
+        app.contact.create_contact(Contact(firstname_of_contact="", mobilenumber=""))
+
+
+    app.contact.edit_first_contact(Contact(firstname_of_contact="", middlename_of_contact="",
+                                        lastname_of_contact="", contactnickname="",
+
+                                        contacttittle="", contactcompany="", contactaddress="",
+                                        homenumber="", mobilenumber="",
+
+                                        worknumber="", contact_email="", contact_fax="",
+                                        contact_notes="", contact_email2="",
+
+                                        contact_email3="", contact_homepage="", contact_address2="",
+                                        contact_phone2=""))
+
 '''
 # lastname wurde nicht geändert
 
 def test_edit_firstname_of_contact(app):
+
+    if app.contact.count_contact() == 0: # falls keine Gruppe gibt´s
+
+        app.contact.create_contact(Contact(firstname_of_contact="test_firstname", mobilenumber="test_mo")) # erstellen wir eine Gruppe
     app.contact.edit_first_contact(Contact(firstname_of_contact="firstname_changed"))
+
 
 
 def test_edit_middlename_of_contact(app):
@@ -83,3 +110,5 @@ def test_contact_address2(app):
 def test_contact_phone2(app):
     app.contact.edit_first_contact(
         Contact(contact_phone2="contact_phone2_changed"))
+
+'''

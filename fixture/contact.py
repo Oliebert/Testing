@@ -124,3 +124,8 @@ class ContactHelper:
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
         self.app.navigation.return_to_home_page()
 
+    def count_contact(self):  # wie viele Gruppen haben wir auf der Seite
+        wd = self.app.wd
+        self.open_contact_page()
+
+        return len(wd.find_elements_by_name("selected[]"))
