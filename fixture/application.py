@@ -8,7 +8,7 @@ class Application:
 
     def __init__(self):
         self.wd = WebDriver()#firefox_binary="C:\\Program Files\\Mozilla Firefox\\firefox.exe"
-        self.wd.implicitly_wait(5)
+        #self.wd.implicitly_wait(5)
         self.session = SessionHelper(self)
 
                                                     #driver wird ein einziges Mal inizilisiert bei der Erschaffung einer Fixture.

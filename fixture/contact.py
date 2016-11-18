@@ -3,11 +3,12 @@
 class ContactHelper:
 
     def __init__(self,app):
-        self.app=app
+        self.app = app
 
     def open_contact_page(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("add new").click()
+        if not (wd.current_url.endswith("/index.php") and len(wd.find_elements_by_name("add")) > 0):
+            wd.find_element_by_link_text("home").click()
 
     def delete_first_contact(self):
         wd = self.app.wd
@@ -119,6 +120,7 @@ class ContactHelper:
     def create_contact(self,  contact):
         wd = self.app.wd
         self.open_contact_page()
+        wd.find_element_by_link_text("add new").click()
         self.fill_contact_form(contact)
 
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
