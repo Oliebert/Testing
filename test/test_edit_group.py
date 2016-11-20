@@ -6,10 +6,13 @@ def test_edit_group_name(app):
 
         app.group.create(Group(name="test")) # erstellen wir eine Gruppe
 
+    old_groups = app.group.get_group_list()
 
     app.group.edit_first_group(Group(name="group_name_changed"))
 
+    new_groups = app.group.get_group_list()
 
+    assert len(old_groups) == len(new_groups)
 
 def test_edit_group_header(app):
 
@@ -17,8 +20,13 @@ def test_edit_group_header(app):
 
         app.group.create(Group(name="test")) # erstellen wir eine Gruppe
 
+    old_groups = app.group.get_group_list()
+
     app.group.edit_first_group(Group(header="header_name_changed"))
 
+    new_groups = app.group.get_group_list()
+
+    assert len(old_groups)  == len(new_groups)
 
 
 def test_edit_group_footer(app):
@@ -27,6 +35,10 @@ def test_edit_group_footer(app):
 
         app.group.create(Group(name="test")) # erstellen wir eine Gruppe
 
+    old_groups = app.group.get_group_list()
 
     app.group.edit_first_group(Group(footer="header_name_changed"))
 
+    new_groups = app.group.get_group_list()
+
+    assert len(old_groups)  == len(new_groups)

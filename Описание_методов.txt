@@ -1,4 +1,4 @@
-
+﻿
 simple usage examples 
 
 http://selenium-python.readthedocs.io/getting-started.html
@@ -8,3 +8,47 @@ http://selenium-python.readthedocs.io/locating-elements.html#locating-elements
 
 
 https://stru-webinars.s3.amazonaws.com/github_instruction.mp4
+
+
+setUp(), tearDown()
+
+
+in general you add all prerequisite steps to setUp and all clean-up steps to tearDown.
+
+You can read more with examples here.
+
+When a setUp() method is defined, the test runner will run that method prior to each test. Likewise, if a tearDown() method is defined, the test runner will invoke that
+ method after each test.
+For example you have a test that requires items to exist, or certain state - so you put these actions(creating object instances, initializing db, preparing rules and so 
+on) into the setUp.
+
+Also as you know each test should stop in the place where it was started - this means that we have to restore app state to it's initial state - e.g close files,
+ connections, removing newly created items, calling transactions callback and so on - all these steps are to be included into the tearDown.
+
+So the idea is that test itself should contain only actions that to be performed on the test object to get the result, while setUp and tearDown are the methods to help you 
+to leave your test code clean and flexible.
+
+You can create a setUp and tearDown for a bunch of tests and define them in a parent class - so it would be easy for you to support such tests and update common preparations and clean ups.
+
+In der UnitTest unserer TestClass enthält auch Fixture. in der PyTest eine Fixture wird selbständig erstellt und wird als ein Parameter in die Testmethode übergeben.
+
+UnitTest:
+
+def setUp(self):
+    self.wd = WebDriver() # браузер запускается, фикстура создается
+    self.wd.implicitly_wait(60) # ждем 60 сек. пока все загрузится и откроется
+...
+def tearDown(self):
+    self.wd.qiut() # браузер останвливается, фикстура разрушается
+
+PyTest:
+@pytest.fixture
+def app(request):
+	fixture = Application()
+	request.addfinalizer(fixture.destroy)
+	return fixture
+
+
+https://docs.python.org/3/library/unittest.html#basic-example
+https://habrahabr.ru/post/269759/ 
+

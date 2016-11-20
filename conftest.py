@@ -5,7 +5,7 @@ from fixture.application import Application
 fixture=None #фикстура не определена
 
 @pytest.fixture
-def app(request):
+def app():
     global fixture
     if fixture is None:             #случай если фикстура не определена
 

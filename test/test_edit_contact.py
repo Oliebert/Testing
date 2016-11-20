@@ -8,6 +8,9 @@ def test_edit_contact(app):
 
         app.contact.create_contact(Contact(firstname_of_contact="test_firstname", mobilenumber="test_mobilnumber"))
 
+    old_contacts = app.contact.get_contact_list()
+
+
     app.contact.edit_first_contact(Contact(firstname_of_contact="firstname_changed", middlename_of_contact="middlename_changed",
                                         lastname_of_contact="lastname_changed", contactnickname="contactnickname_changed",
 
@@ -20,12 +23,17 @@ def test_edit_contact(app):
                                         contact_email3="contact_email3_changed", contact_homepage="contact_homepage_changed", contact_address2="contact_address2_changed",
                                         contact_phone2="contact_phone2_changed"))
 
+    new_contacts = app.contact.get_contact_list()
+
+    assert len(old_contacts) == len(new_contacts)
+
 def test_edit_empty_contact(app):
 
     if app.contact.count_contact() == 0:  # falls keine Gruppe gibt´s
 
         app.contact.create_contact(Contact(firstname_of_contact="", mobilenumber=""))
 
+    old_contacts = app.contact.get_contact_list()
 
     app.contact.edit_first_contact(Contact(firstname_of_contact="", middlename_of_contact="",
                                         lastname_of_contact="", contactnickname="",
@@ -38,6 +46,10 @@ def test_edit_empty_contact(app):
 
                                         contact_email3="", contact_homepage="", contact_address2="",
                                         contact_phone2=""))
+
+    new_contacts = app.contact.get_contact_list()
+
+    assert len(old_contacts) == len(new_contacts)
 
 '''
 # lastname wurde nicht geändert

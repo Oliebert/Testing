@@ -6,5 +6,10 @@ def test_delete_contact(app):
 
         app.contact.create_contact(Contact(firstname_of_contact="test_firstname", mobilenumber="test_mo")) # erstellen wir einen Contact
 
+    old_contacts = app.contact.get_contact_list()
+
     app.contact.delete_first_contact()
 
+    new_contacts = app.contact.get_contact_list()
+
+    assert len(old_contacts) - 1  == len(new_contacts)

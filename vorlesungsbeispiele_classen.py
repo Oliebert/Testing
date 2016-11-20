@@ -38,6 +38,13 @@ class Point:
 '''
     def __eq__(self, other): # сравниваем координаты обеих точек
         return self.x==other.x and self.y== other.y
+
+    def __lt__(self, other): #сравниваем координаты у
+        return self.y<other.y
+
+    def __repr__(self): # выводим на консоль обьекты нашего типа
+        return("Point("+str(self.x) + "," + str(self.y)+ ")" # return ("Point(%s,%s)"%(self.x,self.y))
+
 '''
 
 

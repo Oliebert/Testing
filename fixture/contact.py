@@ -1,5 +1,7 @@
 #ein Klass für Hilfsmethoden
 
+from model.contact import Contact
+
 class ContactHelper:
 
     def __init__(self,app):
@@ -131,3 +133,15 @@ class ContactHelper:
         self.open_contact_page()
 
         return len(wd.find_elements_by_name("selected[]"))
+
+    def get_contact_list(self):
+        wd = self.app.wd
+        self.open_contact_page()
+        contacts = []
+        for row in wd.find_elements_by_name("entry"): # список строк с информацией о контактах
+            cells = row.find_elements_by_tag_name("td") #список ячеек для каждой строки 
+            #text = cells.text
+
+            id=cells[0].find_element_by_name("selected[]").get_attribute("value")
+            contacts.append(Contact(id=id))
+        return contacts
