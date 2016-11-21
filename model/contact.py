@@ -4,6 +4,7 @@ class Contact:
                        contacttittle=None, contactcompany=None, contactaddress=None, homenumber=None, mobilenumber=None, worknumber=None,
                        contact_email=None, contact_fax=None, contact_notes=None, contact_email2=None, contact_email3=None, contact_homepage=None,
                        contact_address2=None, contact_phone2=None, id=None):
+
         self.firstname_of_contact = firstname_of_contact
         self.middlename_of_contact = middlename_of_contact
         self.lastname_of_contact = lastname_of_contact
@@ -23,3 +24,10 @@ class Contact:
         self.contact_address2 = contact_address2
         self.contact_phone2 = contact_phone2
         self.id = id
+
+        def __repr__(self):
+            return "%s:%s" % (self.id, self.firstname_of_contact)
+
+        def __eq__(self, other):
+
+            return self.id == other.id and self.firstname_of_contact == other.firstname_of_contact

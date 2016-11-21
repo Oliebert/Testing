@@ -142,6 +142,6 @@ class ContactHelper:
             cells = row.find_elements_by_tag_name("td") #список ячеек для каждой строки 
             #text = cells.text
 
-            id=cells[0].find_element_by_name("selected[]").get_attribute("value")
+            id = cells[0].find_element_by_name("selected[]").get_attribute("value")
             contacts.append(Contact(id=id))
         return contacts
