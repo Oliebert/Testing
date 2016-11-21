@@ -4,30 +4,25 @@ def test_edit_group_name(app):
 
     if app.group.count() == 0: # falls keine Gruppe gibt´s
 
-        app.group.create(Group(name="test")) # erstellen wir eine Gruppe
+        app.group.create(Group(name="New_group")) # erstellen wir eine Gruppe
 
-    old_groups = app.group.get_group_list()
+    old_groups = app.group.get_group_list() # Liste der Gruppen bevors Hinzufügen einer neuen Gruppe
 
-    app.group.edit_first_group(Group(name="group_name_changed"))
+    group = Group(name="New_group")
+
+    group.id = old_groups[0].id             # eine id von der alte gruppe behalten wir bei
+
+    app.group.edit_first_group(group)
 
     new_groups = app.group.get_group_list()
 
     assert len(old_groups) == len(new_groups)
 
-def test_edit_group_header(app):
+    old_groups[0] = group
 
-    if app.group.count() == 0: # falls keine Gruppe gibt´s
+    assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)
 
-        app.group.create(Group(name="test")) # erstellen wir eine Gruppe
-
-    old_groups = app.group.get_group_list()
-
-    app.group.edit_first_group(Group(header="header_name_changed"))
-
-    new_groups = app.group.get_group_list()
-
-    assert len(old_groups)  == len(new_groups)
-
+'''
 
 def test_edit_group_footer(app):
 
@@ -37,8 +32,12 @@ def test_edit_group_footer(app):
 
     old_groups = app.group.get_group_list()
 
+
+
     app.group.edit_first_group(Group(footer="header_name_changed"))
 
     new_groups = app.group.get_group_list()
 
     assert len(old_groups)  == len(new_groups)
+
+'''

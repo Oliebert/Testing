@@ -1,3 +1,5 @@
+from sys import maxsize
+
 class Group:
 
     def __init__(self, name=None, header=None, footer=None, id = None):
@@ -10,6 +12,13 @@ class Group:
 
         return "%s:%s" % (self.id, self.name)
 
-    def __eq__(self, other):
+    def __eq__(self, other):                                                                            # gruppen sind gleich wenn Namen oder ids sind gleich
+                                                                                                        # oder einer der ids ist None
+        return (self.id is None or other.id is None or self.id == other.id) and self.name == other.name
 
-        return self.id ==other.id and self.name == other.name
+    def id_or_max(self):  # функция вычисляет по группе ключ для сравнения
+
+        if self.id:  # если есть идентификатор, то возращается именно он
+            return int(self.id)
+        else:
+            return maxsize  # ели нет идентификатора, то присваевается максимально возможное число
