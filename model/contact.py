@@ -27,11 +27,11 @@ class Contact:
         self.id = id
 
     def __repr__(self):
-        return "%s:%s" % (self.id, self.firstname_of_contact)
+        return "%s:%s:s%" % (self.id, self.firstname_of_contact, self.lastname_of_contact)
 
     def __eq__(self, other):                                                                            # gruppen sind gleich wenn Namen oder ids sind gleich
                                                                                                         # oder einer der ids ist None
-        return (self.id is None or other.id is None or self.id == other.id) and self.firstname_of_contact == other.firstname_of_contact
+        return (self.id is None or other.id is None or self.id == other.id) and self.firstname_of_contact == other.firstname_of_contact and self.lastname_of_contact == other.lastname_of_contact
 
     def id_or_max(self):                                                                                # функция вычисляет по группе ключ для сравнения
 

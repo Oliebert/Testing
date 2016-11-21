@@ -6,52 +6,73 @@ def test_edit_contact(app):
 
     if app.contact.count_contact() == 0: # falls keine Gruppe gibt´s
 
-        app.contact.create_contact(Contact(firstname_of_contact="test_firstname", mobilenumber="test_mobilnumber"))
+        app.contact.create_contact(Contact(firstname_of_contact="test_firstname", lastname_of_contact="lastname_changed", contactnickname="contactnickname_changed",))
 
     old_contacts = app.contact.get_contact_list()
 
+    contact = Contact(firstname_of_contact="nk",
+                      lastname_of_contact="kh",
+                      contactnickname="kb",
+                      contactcompany="lk", )
 
-    app.contact.edit_first_contact(Contact(firstname_of_contact="firstname_changed", middlename_of_contact="middlename_changed",
-                                        lastname_of_contact="lastname_changed", contactnickname="contactnickname_changed",
+    contact.id = old_contacts[0].id
 
-                                        contacttittle="contacttittle_changed", contactcompany="contactcompany_changed", contactaddress="contactaddress_changed",
-                                        homenumber="homenumber_changed", mobilenumber="mobilenumber_changed",
-
-                                        worknumber="worknumber_changed", contact_email="contact_email_changed", contact_fax="contact_fax_changed",
-                                        contact_notes="contact_notes_changed", contact_email2="contact_email2_changed",
-
-                                        contact_email3="contact_email3_changed", contact_homepage="contact_homepage_changed", contact_address2="contact_address2_changed",
-                                        contact_phone2="contact_phone2_changed"))
+    app.contact.edit_first_contact(contact)
 
     new_contacts = app.contact.get_contact_list()
 
     assert len(old_contacts) == len(new_contacts)
+
+    old_contacts[0] = contact
+
+    assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
 
 def test_edit_empty_contact(app):
 
     if app.contact.count_contact() == 0:  # falls keine Gruppe gibt´s
 
-        app.contact.create_contact(Contact(firstname_of_contact="", mobilenumber=""))
+        app.contact.create_contact(
+            Contact(firstname_of_contact="", lastname_of_contact="",
+                    contactnickname="", ))
 
-    old_contacts = app.contact.get_contact_list()
+        old_contacts = app.contact.get_contact_list()
 
-    app.contact.edit_first_contact(Contact(firstname_of_contact="", middlename_of_contact="",
-                                        lastname_of_contact="", contactnickname="",
+        contact = Contact(firstname_of_contact="",
+                          lastname_of_contact="",
+                          contactnickname="",
+                          contactcompany="", )
 
-                                        contacttittle="", contactcompany="", contactaddress="",
-                                        homenumber="", mobilenumber="",
+        contact.id = old_contacts[0].id
 
-                                        worknumber="", contact_email="", contact_fax="",
-                                        contact_notes="", contact_email2="",
+        app.contact.edit_first_contact(contact)
 
-                                        contact_email3="", contact_homepage="", contact_address2="",
-                                        contact_phone2=""))
+        new_contacts = app.contact.get_contact_list()
 
-    new_contacts = app.contact.get_contact_list()
+        assert len(old_contacts) == len(new_contacts)
 
-    assert len(old_contacts) == len(new_contacts)
+        old_contacts[0] = contact
 
+        assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
 '''
+
+  old_groups = app.group.get_group_list() # Liste der Gruppen bevors Hinzufügen einer neuen Gruppe
+
+    group = Group(name="New_group")
+
+    group.id = old_groups[0].id             # eine id von der alte gruppe behalten wir bei
+
+    app.group.edit_first_group(group)
+
+    new_groups = app.group.get_group_list()
+
+    assert len(old_groups) == len(new_groups)
+
+    old_groups[0] = group
+
+    assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)
+
+
+
 # lastname wurde nicht geändert
 
 def test_edit_firstname_of_contact(app):

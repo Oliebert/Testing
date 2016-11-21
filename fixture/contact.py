@@ -139,10 +139,9 @@ class ContactHelper:
         self.open_contact_page()
         contacts = []
         for row in wd.find_elements_by_name("entry"): # список строк с информацией о контактах
-            cells = row.find_elements_by_tag_name("td") #список ячеек для каждой строки 
-            text = cells[1].text
-
+            cells = row.find_elements_by_tag_name("td") #список ячеек для каждой строки
+            f_name = cells[2].text
+            l_name = cells[1].text
             id = cells[0].find_element_by_name("selected[]").get_attribute("value")
-
-            contacts.append(Contact(firstname_of_contact=text, id=id))
+            contacts.append(Contact(firstname_of_contact=f_name, lastname_of_contact=l_name, id=id))
         return contacts
