@@ -1,6 +1,6 @@
 
 from model.contact import Contact
-
+from random import randrange
 
 def test_edit_contact(app):
 
@@ -10,24 +10,26 @@ def test_edit_contact(app):
 
     old_contacts = app.contact.get_contact_list()
 
+    index = randrange(len(old_contacts))
+
     contact = Contact(firstname_of_contact="nk",
                       lastname_of_contact="kh",
                       contactnickname="kb",
                       contactcompany="lk", )
 
-    contact.id = old_contacts[0].id
+    contact.id = old_contacts[index].id
 
-    app.contact.edit_first_contact(contact)
+    app.contact.edit_contact_by_index(index, contact)
 
     new_contacts = app.contact.get_contact_list()
 
     assert len(old_contacts) == len(new_contacts)
 
-    old_contacts[0] = contact
+    old_contacts[index] = contact
 
     assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
 
-def test_edit_empty_contact(app):
+'''def test_edit_empty_contact(app):
 
     if app.contact.count_contact() == 0:  # falls keine Gruppe gibt´s
 
@@ -53,7 +55,7 @@ def test_edit_empty_contact(app):
         old_contacts[0] = contact
 
         assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
-'''
+
 
   old_groups = app.group.get_group_list() # Liste der Gruppen bevors Hinzufügen einer neuen Gruppe
 

@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 
-
+from random import randrange
 from model.contact import Contact
 
 def test_add_contact(app):
 
     old_contacts = app.contact.get_contact_list()
+
+    index = randrange(len(old_contacts))
 
     contact = Contact(firstname_of_contact="nk",
                       lastname_of_contact="kh",

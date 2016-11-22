@@ -5,6 +5,7 @@ from model.group import Group
 
 def test_add_group(app):
 
+
     old_groups=app.group.get_group_list()
 
     group = Group(name="knlnölnlmlml", header="GUBJHB", footer="lknlknkln")
