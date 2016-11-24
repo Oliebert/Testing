@@ -28,8 +28,7 @@ class ContactHelper:
 
 
     def select_first_contact(self):
-        wd = self.app.wd
-        wd.find_element_by_name("selected[]").click()
+        self.edit_contact_by_index(0)
 
     def select_contact_by_index(self, index):
         wd = self.app.wd
