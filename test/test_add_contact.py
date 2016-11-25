@@ -11,8 +11,10 @@ def test_add_contact(app):
 
     contact = Contact(firstname_of_contact="nk",
                       lastname_of_contact="kh",
-                      contactnickname="kb",
-                      contactcompany="lk", )
+
+                      homenumber="homenumber",
+                      mobilenumber="mobilenumber",
+                      worknumber="worknumber")
 
     app.contact.create_contact(contact)
 
