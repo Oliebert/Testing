@@ -2,6 +2,7 @@
 
 from model.contact import Contact
 
+
 class ContactHelper:
 
     def __init__(self,app):
@@ -22,7 +23,7 @@ class ContactHelper:
         # click Delete button
         wd.find_element_by_xpath("//div[@id='content']/form[2]/div[2]/input").click()
         # confirm deletion
-        wd.switch_to_alert().accept()
+        wd.switch_to_alert().accept()                                    #клик на форму подтверждающую удаление контакта
         self.contact_cache = None
 
     def fill_contact_form(self, contact):
@@ -35,16 +36,16 @@ class ContactHelper:
         #self.change_field_value_in_contact("title", contact.contacttittle)
        # self.change_field_value_in_contact("company", contact.contactcompany)
         #self.change_field_value_in_contact("address", contact.contactaddress)
-        #self.change_field_value_in_contact("home", contact.homenumber)
-        #self.change_field_value_in_contact("mobile", contact.mobilenumber)
-        #self.change_field_value_in_contact("work", contact.worknumber)
+        self.change_field_value_in_contact("home", contact.homenumber)
+        self.change_field_value_in_contact("mobile", contact.mobilenumber)
+        self.change_field_value_in_contact("work", contact.worknumber)
         #self.change_field_value_in_contact("fax", contact.contact_fax)
         #self.change_field_value_in_contact("email", contact.contact_email)
         #self.change_field_value_in_contact("email2", contact.contact_email2)
         #self.change_field_value_in_contact("email3", contact.contact_email3)
         #self.change_field_value_in_contact("homepage", contact.contact_homepage)
         #self.change_field_value_in_contact("address2", contact.contact_address2)
-        #self.change_field_value_in_contact("phone2", contact.contact_phone2)
+        self.change_field_value_in_contact("phone2", contact.contact_phone2)
         #self.change_field_value_in_contact("notes", contact.contact_notes)
 
     def change_field_value_in_contact(self, field_name, contact_text):
@@ -59,12 +60,11 @@ class ContactHelper:
         self.open_contact_page()
         wd.find_element_by_link_text("add new").click()
         self.fill_contact_form(contact)
-
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
         self.app.navigation.return_to_home_page()
         self.contact_cache = None
 
-    def count_contact(self):  # wie viele Gruppen haben wir auf der Seite
+    def count_contact(self):                                               # wie viele Kontakten haben wir auf der Seite
         wd = self.app.wd
         self.open_contact_page()
         return len(wd.find_elements_by_name("selected[]"))
@@ -73,12 +73,11 @@ class ContactHelper:
 
     def get_contact_list(self):
         if self.contact_cache is None:
-
             wd = self.app.wd
             self.app.open_home_page()
             self.contact_cache = []
-            for row in wd.find_elements_by_name("entry"): # список строк с информацией о контактах
-                cells = row.find_elements_by_tag_name("td") #список ячеек для каждой строки
+            for row in wd.find_elements_by_name("entry"):                       # список строк с информацией о контактах
+                cells = row.find_elements_by_tag_name("td")                              #список ячеек для каждой строки
                 firstname_of_contact = cells[2].text
                 lastname_of_contact = cells[1].text
                 id = cells[0].find_element_by_name("selected[]").get_attribute("value")
@@ -106,7 +105,10 @@ class ContactHelper:
         self.open_contact_page()
         self.select_contact_by_index(index)
         # open edit form
+        #wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[" + str(index+2) + "]/td[8]/a/img").click()
+        ##wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[%s]/td[8]/a/img" % (index+2)).click()
         wd.find_elements_by_xpath("//form[@name='MainForm']//img[@title='Edit']")[index].click()
+
         # fill contact form
         self.fill_contact_form(new_contact_data)
         # submit edit
@@ -115,14 +117,14 @@ class ContactHelper:
         self.app.navigation.return_to_home_page()
         self.contact_cache = None
 '''
-    def open_contact_to_edit_by_index(self, index):  # открываем форму редактирования контакта
+    def open_contact_to_edit_by_index(self, index):                            # открываем форму редактирования контакта
         wd = self.app.wd
         self.open_contact_page()
         row = wd.find_elements_by_name("entry")[index]
         cell = row.find_elements_by_tag_name("td")[7]
         cell.find_element_by_tag_name("a").click()
 
-    def open_contact_view_by_index(self, index):       # просмотр детальной информации
+    def open_contact_view_by_index(self, index):                                         # просмотр детальной информации
         wd = self.app.wd
         self.open_contact_page()
         row = wd.find_elements_by_name("entry")[index]

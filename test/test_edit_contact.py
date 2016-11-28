@@ -2,20 +2,22 @@
 from model.contact import Contact
 from random import randrange
 
+
 def test_edit_contact(app):
 
-    if app.contact.count_contact() == 0: # falls keine Gruppe gibt´s
+    if app.contact.count_contact() == 0:                                                    # falls keine Gruppe gibt´s
 
-        app.contact.create_contact(Contact(firstname_of_contact="test_firstname", lastname_of_contact="lastname_changed")) #, contactnickname="contactnickname_changed",
+        app.contact.create_contact(Contact(firstname_of_contact="test_firstname", lastname_of_contact="lastname_changed"))
+                                           #contactnickname="contactnickname_changed",
 
     old_contacts = app.contact.get_contact_list()
 
     index = randrange(len(old_contacts))
 
-    contact = Contact(firstname_of_contact="kbkj",
-                      lastname_of_contact="jhg" )
-    ''' contactnickname="kb",
-                      contactcompany="lk",'''
+    contact = Contact(firstname_of_contact="jbbk",
+                      lastname_of_contact="iuhon")
+                      #contactnickname="kb",
+                      #contactcompany="lk"
 
     contact.id = old_contacts[index].id
 

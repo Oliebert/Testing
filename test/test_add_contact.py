@@ -7,15 +7,11 @@ def test_add_contact(app):
 
     old_contacts = app.contact.get_contact_list()
 
-
-
-    contact = Contact(firstname_of_contact="n,mn,", lastname_of_contact="jhgjhb ")
-
-    '''
-                    homenumber="homenumber",
-                    mobilenumber="mobilenumber",
-                    worknumber="worknumber"
-    '''
+    contact = Contact(firstname_of_contact="name",
+                      lastname_of_contact="surname")
+                      #homenumber="homenumber",
+                      #mobilenumber="mobilenumber",
+                      #worknumber="worknumber")
 
     app.contact.create_contact(contact)
 

@@ -1,15 +1,15 @@
 from sys import maxsize
 
+
 class Contact:
 
-    def __init__(self, firstname_of_contact=None, lastname_of_contact=None,   id=None,
-                 homenumber=None, mobilenumber=None, worknumber=None, contact_phone2=None ):
-
-
+    def __init__(self, firstname_of_contact=None, lastname_of_contact=None, id=None,
+                 homenumber=None, mobilenumber=None, worknumber=None, contact_phone2=None):
 
         self.firstname_of_contact = firstname_of_contact
         #self.middlename_of_contact = middlename_of_contact
         self.lastname_of_contact = lastname_of_contact
+        self.id = id
         #self.contactnickname = contactnickname
         #self.contacttittle = contacttittle
         #self.contactcompany = contactcompany
@@ -25,13 +25,13 @@ class Contact:
         #self.contact_homepage = contact_homepage
         #self.contact_address2 = contact_address2
         self.contact_phone2 = contact_phone2
-        self.id = id
 
     def __repr__(self):
-        return "%s:%s:s%" % (self.id, self.firstname_of_contact, self.lastname_of_contact)
 
-    def __eq__(self, other):                                                                            # gruppen sind gleich wenn Namen oder ids sind gleich
-                                                                                                        # oder einer der ids ist None
+        return "%s : %s : s%" % (self.id, self.firstname_of_contact, self.lastname_of_contact)
+
+    def __eq__(self, other):
+
         return (self.id is None or other.id is None or self.id == other.id) and self.firstname_of_contact == other.firstname_of_contact and self.lastname_of_contact == other.lastname_of_contact
 
     def id_or_max(self):                                                                                # функция вычисляет по группе ключ для сравнения
