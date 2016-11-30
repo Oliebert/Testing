@@ -1,6 +1,7 @@
 #ein Klass für Hilfsmethoden
 
 from model.contact import Contact
+import re
 
 
 class ContactHelper:
@@ -81,11 +82,14 @@ class ContactHelper:
                 firstname_of_contact = cells[2].text
                 lastname_of_contact = cells[1].text
                 id = cells[0].find_element_by_name("selected[]").get_attribute("value")
-               # all_phones = cells[5].text.splitlines()
+                all_phones = cells[5].text                # у ячейки берем текст, затем делим на кусочки
+                                                          # (у web элемента нет метода splitlines())
+                                                          # этот метод используем только если текст выделен специальными тегами
 
-                self.contact_cache.append(Contact(firstname_of_contact=firstname_of_contact, lastname_of_contact=lastname_of_contact, id=id))
-                                                 #homenumber=all_phones[0], mobilenumber=all_phones[1], worknumber=all_phones[2],
-                                                 #contact_phone2=all_phones[3]))
+                all_emails = cells[4].text
+                adress = cells[3].text
+                self.contact_cache.append(Contact(firstname_of_contact=firstname_of_contact, lastname_of_contact=lastname_of_contact, id=id,
+                                                all_phones_from_home_page = all_phones, all_emails_from_home_page=all_emails, contactaddress=adress))
 
         return list(self.contact_cache)
 
@@ -116,7 +120,7 @@ class ContactHelper:
         #wd.find_element_by_xpath("//div[@id='content']/form[1]/input[22]").click()
         self.app.navigation.return_to_home_page()
         self.contact_cache = None
-'''
+
     def open_contact_to_edit_by_index(self, index):                            # открываем форму редактирования контакта
         wd = self.app.wd
         self.open_contact_page()
@@ -141,8 +145,30 @@ class ContactHelper:
         worknumber = wd.find_element_by_name("work").get_attribute("value")
         mobilenumber = wd.find_element_by_name("mobile").get_attribute("value")
         contact_phone2 = wd.find_element_by_name("phone2").get_attribute("value")
-        return Contact(firstname_of_contact=firstname_of_contact, lastname_of_contact=lastname_of_contact, id=id, homenumber=homenumber,
+        adress = wd.find_element_by_name("address").get_attribute("value")
+        email = wd.find_element_by_name("email").get_attribute("value")
+        email2 = wd.find_element_by_name("email2").get_attribute("value")
+        email3 = wd.find_element_by_name("email3").get_attribute("value")
+        return Contact(firstname_of_contact=firstname_of_contact, lastname_of_contact=lastname_of_contact,
+                       mobilenumber=mobilenumber,                 id=id,
+                       worknumber=worknumber,                     homenumber=homenumber,
+                       contactaddress=adress,
+                       contact_email=email,
+                       contact_email2=email2,
+                       contact_email3=email3,
+                       contact_phone2=contact_phone2)
+
+    def get_conact_from_view_page(self, index): # получаем информацию о контактах с обзорной страницы
+        wd = self.app.wd
+        self.open_contact_view_by_index(index)
+        text = wd.find_element_by_id("content").text
+        homenumber = re.search("H: (.*)", text).group(1) # (.*) - группа с произвольными символами до конца строки
+                                                         # group()- method - Return the string matched by the RE
+
+        mobilenumber = re.search("M: (.*)", text).group(1)
+        worknumber = re.search("W: (.*)", text).group(1)
+        contact_phone2 = re.search("P: (.*)", text).group(1)
+        return Contact( homenumber=homenumber,
                        mobilenumber=mobilenumber,
                        worknumber=worknumber,
                        contact_phone2=contact_phone2)
-'''

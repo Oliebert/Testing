@@ -12,14 +12,15 @@ def test_edit_contact(app):
 
     old_contacts = app.contact.get_contact_list()
 
-    index = randrange(len(old_contacts))
+    index = randrange(len(old_contacts))   # генерируется рандомный номер контакта
 
     contact = Contact(firstname_of_contact="jbbk",
                       lastname_of_contact="iuhon")
                       #contactnickname="kb",
                       #contactcompany="lk"
 
-    contact.id = old_contacts[index].id
+    contact.id = old_contacts[index].id   # идентификатор после модификации должен сохранятся и если это не указать явно,
+                                          # модифицированной группе присвоится новый идентификатор
 
     app.contact.edit_contact_by_index(index, contact)
 
@@ -29,7 +30,7 @@ def test_edit_contact(app):
 
     old_contacts[index] = contact
 
-    assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
+    assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max) #сравниваем по ключу id
 
 '''def test_edit_empty_contact(app):
 
