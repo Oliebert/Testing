@@ -2,22 +2,35 @@
 
 
 from model.contact import Contact
+import pytest
+import random
+import string # содержит константы хранящие списки символов
 
-def test_add_contact(app):
+def random_string(prefix, maxlen): # функция генерирующая случайные строки
+    symbols=string.ascii_letters + string.digits + " "*10
+    return prefix + "".join ([random.choice(symbols) for i in range(random.randrange(maxlen))]) # сгенерирована случайная длина символов не привышающая максимальную
+
+testdata = [Contact(firstname_of_contact="", lastname_of_contact="")] + [
+            Contact(firstname_of_contact=random_string("firstname_of_contact", 10), lastname_of_contact=random_string("lastname_of_contact", 20))
+            for i in range(5)]
+
+@pytest.mark.parametrize( "contact" ,  testdata, ids = [repr(a) for a in testdata] )  # ids- список с текстовым представлением данных (преобразование в строки )
+
+def test_add_contact(app, contact):
 
     old_contacts = app.contact.get_contact_list()
 
-    contact = Contact(firstname_of_contact="name",
+    '''contact = Contact(firstname_of_contact="name",
                       lastname_of_contact="surname")
                       #homenumber="homenumber",
                       #mobilenumber="mobilenumber",
                       #worknumber="worknumber")
+    '''
 
     app.contact.create_contact(contact)
+    assert len(old_contacts) + 1 == app.contact.count_contact()
 
     new_contacts = app.contact.get_contact_list()
-
-    assert len(old_contacts) + 1 == app.contact.count_contact()
 
     old_contacts.append(contact)
 

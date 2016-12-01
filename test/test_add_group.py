@@ -1,18 +1,28 @@
 
 from model.group import Group
+import pytest
+import random
+import string # содержит константы хранящие списки символов
 
+def random_string(prefix, maxlen): # функция генерирующая случайные строки
+    symbols=string.ascii_letters + string.digits + " "*10 + string.punctuation
+    return prefix + "".join ([random.choice(symbols) for i in range(random.randrange(maxlen))]) # сгенерирована случайная длина символов не привышающая максимальную
 
-def test_add_group(app):
+testdata = [ Group(name="", header="", footer="")] + [
+            Group(name=random_string("name", 10), header=random_string("header", 20), footer=random_string("footer", 20))
+             for i in range(5)]
+
+@pytest.mark.parametrize("group", testdata, ids = [repr(x) for x in testdata] )  # ids- список с текстовым представлением данных (преобразование в строки )
+
+def test_add_group(app, group):             # параметр передается тестовым фреймворком
 
     old_groups=app.group.get_group_list()
 
-    group = Group(name="Group_name", header="Group_header", footer="Group_footer")
-
     app.group.create(group)
 
-    new_groups = app.group.get_group_list()
-
     assert len(old_groups)+1 == app.group.count()                                                 #count() - хэш функция
+
+    new_groups = app.group.get_group_list()
 
     old_groups.append(group)                                  # к новой группе присваивается самый большой идентификатор
 
