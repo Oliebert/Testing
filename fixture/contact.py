@@ -31,22 +31,22 @@ class ContactHelper:
         wd = self.app.wd
 
         self.change_field_value_in_contact("firstname", contact.firstname_of_contact)
-       # self.change_field_value_in_contact("middlename", contact.middlename_of_contact)
+        #self.change_field_value_in_contact("middlename", contact.middlename_of_contact)
         self.change_field_value_in_contact("lastname", contact.lastname_of_contact)
         #self.change_field_value_in_contact("nickname", contact.contactnickname)
         #self.change_field_value_in_contact("title", contact.contacttittle)
-       # self.change_field_value_in_contact("company", contact.contactcompany)
+        #self.change_field_value_in_contact("company", contact.contactcompany)
         #self.change_field_value_in_contact("address", contact.contactaddress)
-        self.change_field_value_in_contact("home", contact.homenumber)
-        self.change_field_value_in_contact("mobile", contact.mobilenumber)
-        self.change_field_value_in_contact("work", contact.worknumber)
+        #self.change_field_value_in_contact("home", contact.homenumber)
+        #self.change_field_value_in_contact("mobile", contact.mobilenumber)
+        #self.change_field_value_in_contact("work", contact.worknumber)
         #self.change_field_value_in_contact("fax", contact.contact_fax)
         #self.change_field_value_in_contact("email", contact.contact_email)
         #self.change_field_value_in_contact("email2", contact.contact_email2)
         #self.change_field_value_in_contact("email3", contact.contact_email3)
         #self.change_field_value_in_contact("homepage", contact.contact_homepage)
         #self.change_field_value_in_contact("address2", contact.contact_address2)
-        self.change_field_value_in_contact("phone2", contact.contact_phone2)
+        #self.change_field_value_in_contact("phone2", contact.contact_phone2)
         #self.change_field_value_in_contact("notes", contact.contact_notes)
 
     def change_field_value_in_contact(self, field_name, contact_text):
@@ -81,15 +81,15 @@ class ContactHelper:
                 cells = row.find_elements_by_tag_name("td")                              #список ячеек для каждой строки
                 firstname_of_contact = cells[2].text
                 lastname_of_contact = cells[1].text
-                id = cells[0].find_element_by_name("selected[]").get_attribute("value")
-                all_phones = cells[5].text                # у ячейки берем текст, затем делим на кусочки
+                id = row.find_element_by_name("selected[]").get_attribute("value")
+                #all_phones = cells[5].text                # у ячейки берем текст, затем делим на кусочки
                                                           # (у web элемента нет метода splitlines())
                                                           # этот метод используем только если текст выделен специальными тегами
 
-                all_emails = cells[4].text
-                adress = cells[3].text
-                self.contact_cache.append(Contact(firstname_of_contact=firstname_of_contact, lastname_of_contact=lastname_of_contact, id=id,
-                                                all_phones_from_home_page = all_phones, all_emails_from_home_page=all_emails, contactaddress=adress))
+               # all_emails = cells[4].text
+                #adress = cells[3].text
+                self.contact_cache.append(Contact(firstname_of_contact=firstname_of_contact, lastname_of_contact=lastname_of_contact, id=id))
+                                                #all_phones_from_home_page = all_phones, all_emails_from_home_page=all_emails, contactaddress=adress))
 
         return list(self.contact_cache)
 
