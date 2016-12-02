@@ -14,40 +14,14 @@ class ContactHelper:
         if not (wd.current_url.endswith("/index.php") and len(wd.find_elements_by_name("add")) > 0):
             wd.find_element_by_link_text("home").click()
 
-    def delete_first_contact(self):
-        self.delete_contact_by_index(0)
-
-
-    def delete_contact_by_index(self, index):
+    def create_contact(self, contact):
         wd = self.app.wd
-        self.select_contact_by_index(index)
-        # click Delete button
-        wd.find_element_by_xpath("//div[@id='content']/form[2]/div[2]/input").click()
-        # confirm deletion
-        wd.switch_to_alert().accept()                                    #клик на форму подтверждающую удаление контакта
+        self.open_contact_page()
+        wd.find_element_by_link_text("add new").click()
+        self.fill_contact_form(contact)
+        wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
+        #self.app.navigation.return_to_home_page()
         self.contact_cache = None
-
-    def fill_contact_form(self, contact):
-        wd = self.app.wd
-
-        self.change_field_value_in_contact("firstname", contact.firstname_of_contact)
-        #self.change_field_value_in_contact("middlename", contact.middlename_of_contact)
-        self.change_field_value_in_contact("lastname", contact.lastname_of_contact)
-        #self.change_field_value_in_contact("nickname", contact.contactnickname)
-        #self.change_field_value_in_contact("title", contact.contacttittle)
-        #self.change_field_value_in_contact("company", contact.contactcompany)
-        #self.change_field_value_in_contact("address", contact.contactaddress)
-        #self.change_field_value_in_contact("home", contact.homenumber)
-        #self.change_field_value_in_contact("mobile", contact.mobilenumber)
-        #self.change_field_value_in_contact("work", contact.worknumber)
-        #self.change_field_value_in_contact("fax", contact.contact_fax)
-        #self.change_field_value_in_contact("email", contact.contact_email)
-        #self.change_field_value_in_contact("email2", contact.contact_email2)
-        #self.change_field_value_in_contact("email3", contact.contact_email3)
-        #self.change_field_value_in_contact("homepage", contact.contact_homepage)
-        #self.change_field_value_in_contact("address2", contact.contact_address2)
-        #self.change_field_value_in_contact("phone2", contact.contact_phone2)
-        #self.change_field_value_in_contact("notes", contact.contact_notes)
 
     def change_field_value_in_contact(self, field_name, contact_text):
         wd = self.app.wd
@@ -56,14 +30,32 @@ class ContactHelper:
             wd.find_element_by_name(field_name).clear()
             wd.find_element_by_name(field_name).send_keys(contact_text)
 
-    def create_contact(self, contact):
+    def fill_contact_form(self, contact):
+        self.change_field_value_in_contact("firstname", contact.firstname_of_contact)
+        # self.change_field_value_in_contact("middlename", contact.middlename_of_contact)
+        self.change_field_value_in_contact("lastname", contact.lastname_of_contact)
+        # self.change_field_value_in_contact("nickname", contact.contactnickname)
+        # self.change_field_value_in_contact("title", contact.contacttittle)
+        # self.change_field_value_in_contact("company", contact.contactcompany)
+        # self.change_field_value_in_contact("address", contact.contactaddress)
+        # self.change_field_value_in_contact("home", contact.homenumber)
+        # self.change_field_value_in_contact("mobile", contact.mobilenumber)
+        # self.change_field_value_in_contact("work", contact.worknumber)
+        # self.change_field_value_in_contact("fax", contact.contact_fax)
+        # self.change_field_value_in_contact("email", contact.contact_email)
+        # self.change_field_value_in_contact("email2", contact.contact_email2)
+        # self.change_field_value_in_contact("email3", contact.contact_email3)
+        # self.change_field_value_in_contact("homepage", contact.contact_homepage)
+        # self.change_field_value_in_contact("address2", contact.contact_address2)
+        # self.change_field_value_in_contact("phone2", contact.contact_phone2)
+        # self.change_field_value_in_contact("notes", contact.contact_notes)
+
+    def select_first_contact(self):
+        self.select_contact_by_index(0)
+
+    def select_contact_by_index(self, index):
         wd = self.app.wd
-        self.open_contact_page()
-        wd.find_element_by_link_text("add new").click()
-        self.fill_contact_form(contact)
-        wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
-        self.app.navigation.return_to_home_page()
-        self.contact_cache = None
+        wd.find_elements_by_name("selected[]")[index].click()
 
     def count_contact(self):                                               # wie viele Kontakten haben wir auf der Seite
         wd = self.app.wd
@@ -93,13 +85,6 @@ class ContactHelper:
 
         return list(self.contact_cache)
 
-    def select_first_contact(self):
-        wd = self.app.wd
-        wd.find_element_by_name("selected[]").click()
-
-    def select_contact_by_index(self, index):
-        wd = self.app.wd
-        wd.find_elements_by_name("selected[]")[index].click()
 
     def edit_first_contact(self, new_contact_data):
         self.edit_contact_by_index(0, new_contact_data)
@@ -118,7 +103,7 @@ class ContactHelper:
         # submit edit
         wd.find_element_by_name("update").click()
         #wd.find_element_by_xpath("//div[@id='content']/form[1]/input[22]").click()
-        self.app.navigation.return_to_home_page()
+        self.open_contact_page()
         self.contact_cache = None
 
     def open_contact_to_edit_by_index(self, index):                            # открываем форму редактирования контакта
@@ -172,3 +157,16 @@ class ContactHelper:
                        mobilenumber=mobilenumber,
                        worknumber=worknumber,
                        contact_phone2=contact_phone2)
+
+    def delete_first_contact(self):
+        self.delete_contact_by_index(0)
+
+    def delete_contact_by_index(self, index):
+        wd = self.app.wd
+        self.open_contact_page()
+        self.select_contact_by_index(index)
+        # click Delete button
+        wd.find_element_by_xpath("//div[@id='content']/form[2]/div[2]/input").click()
+        # confirm deletion
+        wd.switch_to_alert().accept()  # клик на форму подтверждающую удаление контакта
+        self.contact_cache = None

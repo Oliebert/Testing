@@ -27,7 +27,7 @@ class Application:
 
         self.contact = ContactHelper(self)
 
-        self.navigation = NavigationHelper(self)
+  #      self.navigation = NavigationHelper(self)
 
     def is_valid(self):
         try:
