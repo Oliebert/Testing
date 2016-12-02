@@ -5,15 +5,19 @@ from fixture.application import Application
 fixture=None #фикстура не определена
 
 @pytest.fixture
-def app():
+def app(request):
     global fixture
-    if fixture is None:             #случай если фикстура не определена
+    browser = request.config.getoption("--browser") # получаем доступ к сохраненному параметру browser
+    base_url = request.config.getoption("--baseUrl")
 
-        fixture = Application()
+    if fixture is None:    #случай если фикстура не определена
+
+        fixture = Application(browser = browser, base_url= base_url)
 
     else:                           #случай если фикстура испортилась
         if not fixture.is_valid():
-            fixture = Application()
+
+            fixture = Application(browser = browser, base_url= base_url) # browser = browser, base_url=base_url
 
     fixture.session.ensure_login(username="admin", password="secret")
 
@@ -28,3 +32,7 @@ def stop(request):
         fixture.destroy()
     request.addfinalizer(fin)
     return fixture
+
+def pytest_addoption(parser):
+    parser.addoption ("--browser", action= "store", default="firefox" ) # действие - сохранить значение параметра browser
+    parser.addoption("--baseUrl", action="store", default="http://localhost/addressbook/")
