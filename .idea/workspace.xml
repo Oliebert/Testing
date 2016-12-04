@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e5a2953-740f-44da-9e3b-2f5e42db8e66" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conftest.py" afterPath="$PROJECT_DIR$/conftest.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Описание_методов.txt" afterPath="$PROJECT_DIR$/Описание_методов.txt" />
     </list>
     <ignored path="Testing_training.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="conftest.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="conftest.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conftest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="22" column="72" selection-start-line="22" selection-start-column="72" selection-end-line="22" selection-end-column="72" />
+            <state relative-caret-position="225">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -67,7 +64,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_del_contact.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test_del_contact.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/test_del_contact.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
@@ -246,7 +243,7 @@
       <recent name="C:\Users\chu\Desktop\Testing_training\venv\model" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.py.test in test_del_group.py">
+  <component name="RunManager" selected="Python tests.py.test in test_del_contact.py">
     <configuration default="false" name="py.test in test_add_contact.py" type="tests" factoryName="py.test" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -510,8 +507,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.py.test in test_del_group.py" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.py.test in test_del_contact.py" />
+        <item index="0" class="java.lang.String" itemvalue="Python tests.py.test in test_del_contact.py" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.py.test in test_del_group.py" />
         <item index="2" class="java.lang.String" itemvalue="Python tests.py.test in test_add_contact.py" />
         <item index="3" class="java.lang.String" itemvalue="Python tests.py.test in test_edit_contact.py" />
         <item index="4" class="java.lang.String" itemvalue="Python tests.py.test in test_edit_group.py" />
@@ -532,9 +529,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="py_test_in_test_del_contact_py - 2016.12.02 at 20h 46m 02s.xml">
-      <configuration name="py.test in test_del_contact.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="py_test_in_test_del_contact_py - 2016.12.02 at 20h 49m 18s.xml">
       <configuration name="py.test in test_del_contact.py" configurationId="tests" />
     </history-entry>
@@ -545,6 +539,9 @@
       <configuration name="py.test in test_del_contact.py" configurationId="tests" />
     </history-entry>
     <history-entry file="py_test_in_test_del_contact_py - 2016.12.04 at 15h 17m 21s.xml">
+      <configuration name="py.test in test_del_contact.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="py_test_in_test_del_contact_py - 2016.12.04 at 15h 44m 24s.xml">
       <configuration name="py.test in test_del_contact.py" configurationId="tests" />
     </history-entry>
     <history-entry file="py_test_in_test_del_group_py - 2016.12.02 at 20h 49m 56s.xml">
@@ -843,10 +840,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/test_del_contact.py">
+    <entry file="file://$PROJECT_DIR$/target.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+        <state relative-caret-position="51">
+          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -859,21 +856,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/target.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/conftest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="22" column="72" selection-start-line="22" selection-start-column="72" selection-end-line="22" selection-end-column="72" />
+        <state relative-caret-position="225">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test_del_contact.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
