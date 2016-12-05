@@ -17,7 +17,7 @@ def app(request):
 
     if target is None:
         config_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), request.config.getoption("--target"))  # получаем информацию о пути к текущему файлу
-        with open(config_file) as config_file:
+        with open(config_file) as config_file:                                                                        # затем пришиваем к ней target
             target = json.load(config_file)
 
     if fixture is None or not fixture.is_valid():                                   # случай если фикстура не определена
