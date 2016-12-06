@@ -8,8 +8,9 @@ import json
 import getopt # для чтения опций из командной строки
 import sys # для того чтобы получить доступ к этим опциям
 
+
 try:
-    opts, args = getopt.getopt(sys.argv[1:], "n:f", ["number of groups", "file"]) # n - количество генерируемых данных,
+    opts, args = getopt.getopt(sys.argv[1:], "n:f:", ["number of groups", "file"]) # n - количество генерируемых данных,
 except getopt.GetoptError as err:                                                 # f- файл в который это все помещается
     # sys.argv это список параметров, которые переданы в программу из командной строки при запуске
     #1: это диапазон от второго элемента списка до последнего
@@ -37,6 +38,6 @@ testdata = [ Group(name="", header="", footer="")] + [
 
 file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", f)  # получаем информацию о пути к текущему файлу
 
-with open(file, "w") as f:
-    f.write(json.dumps(testdata, default=lambda x: x.__dict__, indent=2)) # __dict__хранит все свойства которые мы присваиваем в поля с self
+with open(file, "w") as out:
+    out.write(json.dumps(testdata, default=lambda x: x.__dict__, indent=2)) # __dict__хранит все свойства которые мы присваиваем в поля с self
                                                                             # функция dumps превращает некоторую структуру данных в строку в формате json

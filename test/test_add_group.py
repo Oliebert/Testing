@@ -1,12 +1,15 @@
 
 from model.group import Group
-import pytest
-from data.add_group import constant as testdata
+#import pytest
+#from data.groups import constant as testdata
 
 
-@pytest.mark.parametrize("group", testdata, ids = [repr(x) for x in testdata] )  # ids- список с текстовым представлением данных (преобразование в строки )
+#@pytest.mark.parametrize("group", testdata, ids = [repr(x) for x in testdata] )  # ids- список с текстовым представлением данных (преобразование в строки )
+#The builtin pytest.mark.parametrize decorator enables parametrization of arguments for a test function.
 
-def test_add_group(app, group):             # параметр передается тестовым фреймворком
+def test_add_group(app, data_groups):             # параметр передается тестовым фреймворком
+
+    group = data_groups
 
     old_groups=app.group.get_group_list()
 

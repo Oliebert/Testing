@@ -2,21 +2,12 @@
 
 
 from model.contact import Contact
-import pytest
-import random
-import string # содержит константы хранящие списки символов
 
-def random_string(prefix, maxlen): # функция генерирующая случайные строки
-    symbols=string.ascii_letters + string.digits + ""*10
-    return prefix + "".join([random.choice(symbols) for i in range(random.randrange(maxlen))]) # сгенерирована случайная длина символов не привышающая максимальную
+#@pytest.mark.parametrize("contact" ,  testdata, ids = [repr(a) for a in testdata] )  # ids- список с текстовым представлением данных (преобразование в строки )
+#The builtin pytest.mark.parametrize decorator enables parametrization of arguments for a test function.
+def test_add_contact(app, data_contacts):
 
-testdata = [Contact(firstname_of_contact="", lastname_of_contact="")] + [
-            Contact(firstname_of_contact=random_string("firstname", 10), lastname_of_contact=random_string("lastname", 10))
-            for i in range(5)]
-
-@pytest.mark.parametrize("contact" ,  testdata, ids = [repr(a) for a in testdata] )  # ids- список с текстовым представлением данных (преобразование в строки )
-
-def test_add_contact(app, contact):
+    contact = data_contacts
 
     old_contacts = app.contact.get_contact_list()
     app.contact.create_contact(contact)
