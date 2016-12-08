@@ -2,7 +2,7 @@ from model.contact import Contact
 import random
 import string                                                              # содержит константы хранящие списки символов
 import os.path
-import json
+import jsonpickle
 import getopt# для чтения опций из командной строки
 import sys   # для того чтобы получить доступ к этим опциям
 

@@ -4,7 +4,7 @@ from model.group import Group
 import random
 import string                                                              # содержит константы хранящие списки символов
 import os.path
-import json
+import jsonpickle
 import getopt # для чтения опций из командной строки
 import sys # для того чтобы получить доступ к этим опциям
 
@@ -39,5 +39,6 @@ testdata = [ Group(name="", header="", footer="")] + [
 file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", f)  # получаем информацию о пути к текущему файлу
 
 with open(file, "w") as out:
-    out.write(json.dumps(testdata, default=lambda x: x.__dict__, indent=2)) # __dict__хранит все свойства которые мы присваиваем в поля с self
+    jsonpickle.set_encoder_options("json", indent = 2)
+    out.write(jsonpickle.encode(testdata)) # default=lambda x: x.__dict__, indent=2)) # __dict__хранит все свойства которые мы присваиваем в поля с self
                                                                             # функция dumps превращает некоторую структуру данных в строку в формате json

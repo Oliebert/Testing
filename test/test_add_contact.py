@@ -5,9 +5,9 @@ from model.contact import Contact
 
 #@pytest.mark.parametrize("contact" ,  testdata, ids = [repr(a) for a in testdata] )  # ids- список с текстовым представлением данных (преобразование в строки )
 #The builtin pytest.mark.parametrize decorator enables parametrization of arguments for a test function.
-def test_add_contact(app, data_contacts):
+def test_add_contact(app, json_contacts):
 
-    contact = data_contacts
+    contact = json_contacts
 
     old_contacts = app.contact.get_contact_list()
     app.contact.create_contact(contact)

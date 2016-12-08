@@ -1,8 +1,9 @@
 import pytest
 from fixture.application import Application
-import json
+import jsonpickle
 import os.path
 import importlib
+import json
 
 
 fixture = None                                                                                   #фикстура не определена
@@ -49,6 +50,15 @@ def pytest_generate_tests(metafunc): # параметр metafunc содержи�
         if fixture.startswith("data_"):
             testdata = load_from_module(fixture[5:]) # загружаем тестовые данные из модуля, который имеет такое же название как фикстура только обрезанное
             metafunc.parametrize(fixture, testdata, ids=[str(x) for x in testdata])
+
+        elif fixture.startswith("json_"):
+            testdata = load_from_module(fixture[ 5:])  # загружаем тестовые данные из документа json, который имеет такое же название как фикстура только обрезанное
+            metafunc.parametrize(fixture, testdata, ids=[str(x) for x in testdata])
+
+def load_from_json(file):
+    with open (os.path.join(os.path.dirname(os.path.abspath(__file__)), "data/%s.json" % file)) as f:
+        return jsonpickle.decode(f.read())
+
 
 def load_from_module(module):
     return importlib.import_module("data.%s" % module).testdata # или ('.' + <имя модуля>, имя данных)
