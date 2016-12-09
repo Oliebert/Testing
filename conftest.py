@@ -39,7 +39,7 @@ def stop(request):
     return fixture
 
 
-def pytest_addoption(parser):
+def pytest_addoption(parser): #parser нам нужен для того чтобы код из командной строки понимался в Питоне
 
     parser.addoption("--browser", action="store", default="firefox")  # действие - сохранить значение параметра browser
     parser.addoption("--target", action="store", default="target.json")
@@ -52,7 +52,7 @@ def pytest_generate_tests(metafunc): # параметр metafunc содержи�
             metafunc.parametrize(fixture, testdata, ids=[str(x) for x in testdata])
 
         elif fixture.startswith("json_"):
-            testdata = load_from_module(fixture[ 5:])  # загружаем тестовые данные из документа json, который имеет такое же название как фикстура только обрезанное
+            testdata = load_from_json(fixture[5:])  # загружаем тестовые данные из документа json, который имеет такое же название как фикстура только обрезанное
             metafunc.parametrize(fixture, testdata, ids=[str(x) for x in testdata])
 
 def load_from_json(file):

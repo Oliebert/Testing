@@ -29,7 +29,7 @@ for o, a in opts:                   # o - название опции, a - ее 
         f = a
 
 def random_string(prefix, maxlen): # функция генерирующая случайные строки
-    symbols=string.ascii_letters + string.digits + " "*10 + string.punctuation
+    symbols=string.ascii_letters + string.digits #+ " "*10 + string.punctuation
     return prefix + "".join ([random.choice(symbols) for i in range(random.randrange(maxlen))]) # сгенерирована случайная длина символов не привышающая максимальную
 
 testdata = [ Group(name="", header="", footer="")] + [

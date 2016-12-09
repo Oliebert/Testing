@@ -56,5 +56,5 @@ testdata = [Contact(firstname_of_contact="", lastname_of_contact="")] + [
 file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", f)  # получаем информацию о пути к текущему файлу "../data/contacts.json"
 
 with open(file, "w") as out:
-    out.write(json.dumps(testdata, default=lambda x: x.__dict__, indent=2)) # __dict__хранит все свойства которые мы присваиваем в поля с self
+    out.write(jsonpickle.encode(testdata))# default=lambda x: x.__dict__, indent=2)) # __dict__хранит все свойства которые мы присваиваем в поля с self
                                                                             # функция dumps превращает некоторую структуру данных в строку в формате json

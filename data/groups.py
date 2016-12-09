@@ -9,7 +9,7 @@ import string # содержит константы хранящие списк�
 
 def random_string(prefix, maxlen): # функция генерирующая случайные строки
     symbols=string.ascii_letters + string.digits #+ ""*10 + string.punctuation
-    return prefix + "".join ([random.choice(symbols) for i in range(random.randrange(maxlen))]) # сгенерирована случайная длина символов не привышающая максимальную
+    return prefix + "".join([random.choice(symbols) for i in range(random.randrange(maxlen))]) # сгенерирована случайная длина символов не привышающая максимальную
 
 testdata = [ Group(name="", header="", footer="")] + [
             Group(name=random_string("name", 10), header=random_string("header", 20), footer=random_string("footer", 20))
