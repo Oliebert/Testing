@@ -21,8 +21,8 @@ f = "data/contacts.json"
 
 for o, a in opts:                   # o - название опции, a - ее значение
     if o == "-n":
-        n = int(a)
-    elif o == "-f":
+        n = int(a)                  # запуск из командной строки :
+    elif o == "-f":                 # (env) c:\repository\python_training>python data\\test.json generator\group.py -n 10 -f
         f = a
 
 
