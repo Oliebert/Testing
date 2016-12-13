@@ -31,6 +31,11 @@ def app(request):
     fixture.session.ensure_login(username=web_config['username'], password=web_config['password'])
     return fixture
 
+@pytest.fixture
+def check_ui(request):
+    return request.config.getoption("--check_ui")
+
+
 
 @pytest.fixture(scope="session") # фикстура для загрузки базы данных
 def db(request):
@@ -58,6 +63,7 @@ def pytest_addoption(parser): #parser нам нужен для того чтоб
 
     parser.addoption("--browser", action="store", default="firefox")  # действие - сохранить значение параметра browser
     parser.addoption("--target", action="store", default="target.json")
+    parser.addoption("--check_ui", action="store_true")
 
 def pytest_generate_tests(metafunc): # параметр metafunc содержит информацию о вызываемом методе, для которого генерируются данные
                                      #в частности, он содержит информацию о фикстурах, которые требуются этому методу

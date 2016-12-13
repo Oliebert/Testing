@@ -7,7 +7,7 @@ from model.group import Group
 #@pytest.mark.parametrize("group", testdata, ids = [repr(x) for x in testdata] )  # ids- список с текстовым представлением данных (преобразование в строки )
 #The builtin pytest.mark.parametrize decorator enables parametrization of arguments for a test function.
 
-def test_add_group(app, db,json_groups):             # параметр передается тестовым фреймворком
+def test_add_group(app, db, json_groups, check_ui):             # параметр передается тестовым фреймворком
 
     group = json_groups
 
@@ -17,11 +17,15 @@ def test_add_group(app, db,json_groups):             # параметр пере
 
     assert len(old_groups)+1 == app.group.count()                                                 #count() - хэш функция
 
-    new_groups = db.group.get_group_list()
+    new_groups = db.get_group_list()
 
     old_groups.append(group)                                  # к новой группе присваивается самый большой идентификатор
 
     assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)
+
+    if check_ui :
+
+        assert sorted(new_groups, key= Group.id_or_max) == sorted(app.group.get_group_list(),key= Group.id_or_max)
 
 
 '''def test_add_empty_group(app):

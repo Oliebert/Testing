@@ -1,36 +1,45 @@
 
 from model.contact import Contact
 from random import randrange
+import random
 
 
-def test_edit_contact(app):
+def test_edit_contact(app,db, check_ui):
 
     if app.contact.count_contact() == 0:                                                    # falls keine Gruppe gibt´s
 
         app.contact.create_contact(Contact(firstname_of_contact="test_firstname", lastname_of_contact="lastname_changed"))
                                            #contactnickname="contactnickname_changed",
 
-    old_contacts = app.contact.get_contact_list()
+    old_contacts = db.get_contact_list()
 
-    index = randrange(len(old_contacts))   # генерируется рандомный номер контакта
+    #index = randrange(len(old_contacts))   # генерируется рандомный номер контакта
+    contact = random.choice(old_contacts)
+    old_contacts.remove(contact)
 
-    contact = Contact(firstname_of_contact="jbbk",
+    edit_contact = Contact(firstname_of_contact="jbbk",
                       lastname_of_contact="iuhon")
                       #contactnickname="kb",
                       #contactcompany="lk"
-
-    contact.id = old_contacts[index].id   # идентификатор после модификации должен сохранятся и если это не указать явно,
+    edit_contact.id = contact.id
+    #contact.id = old_contacts[index].id   # идентификатор после модификации должен сохранятся и если это не указать явно,
                                           # модифицированной группе присвоится новый идентификатор
+    old_contacts.append(edit_contact)
 
-    app.contact.edit_contact_by_index(index, contact)
+    app.contact.edit_contact_by_id(contact.id, edit_contact)
 
-    new_contacts = app.contact.get_contact_list()
+    new_contacts = db.get_contact_list()
 
-    assert len(old_contacts) == len(new_contacts)
+    #assert len(old_contacts) == len(new_contacts)
 
-    old_contacts[index] = contact
+    #old_contacts[index] = contact
 
     assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max) #сравниваем по ключу id
+
+    if check_ui:
+        assert sorted(new_contacts, key=Contact.id_or_max) == sorted(app.contact.get_contact_list(),
+                                                                     key=Contact.id_or_max)
+
 
 '''def test_edit_empty_contact(app):
 
