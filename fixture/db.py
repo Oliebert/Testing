@@ -12,7 +12,6 @@ class DbFixture:
        # self.connection = pymysql.connect(host=host, database=name, user=user, password=password)
         self.connection = pymysql.connect(host=host, database=name, user=user, password=password, autocommit=True) # кэширование работает и на чтение и на запись, кэш сбрасывается
 
-
     def get_group_list(self): # загружаем из базы данных список групп и контактов
         cursor = self.connection.cursor() # cursor - указатель не на обьект а на данные в базе
         try:
@@ -41,5 +40,6 @@ class DbFixture:
         finally:
             cursor.close()
         return list
+
     def destroy(self):
         self.connection.close()

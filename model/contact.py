@@ -3,7 +3,7 @@ from sys import maxsize
 
 class Contact:
 
-    def __init__(self, firstname_of_contact=None, lastname_of_contact=None, id=None, all_phones_from_home_page=None, all_emails_from_home_page=None,
+    def __init__(self, firstname_of_contact=None, lastname_of_contact=None, id=None, all_phones=None, all_emails=None,
                  homenumber=None, mobilenumber=None, worknumber=None, contact_phone2=None, middlename_of_contact=None, contactnickname=None,
                  contacttittle=None, contactcompany=None, contactaddress=None, contact_email=None, contact_fax=None, contact_notes=None, contact_email2=None,
                  contact_email3=None, contact_homepage=None, contact_address2=None):
@@ -28,12 +28,12 @@ class Contact:
         self.contact_homepage = contact_homepage
         self.contact_address2 = contact_address2
         self.contact_phone2 = contact_phone2
-        self.all_phones_from_home_page = all_phones_from_home_page
-        self.all_emails_from_home_page = all_emails_from_home_page
+        self.all_phones = all_phones
+        self.all_emails = all_emails
 
     def __repr__(self):
 
-        return "%s : %s : %s :%s : %s : %s " % (self.id, self.firstname_of_contact, self.lastname_of_contact,self.homenumber, self.contact_email,self.contactaddress )
+        return "%s : %s : %s :%s : %s : %s " % (self.id, self.firstname_of_contact, self.lastname_of_contact,self.homenumber, self.contact_email,self.contactaddress,  )
 
 
     def __eq__(self, other):

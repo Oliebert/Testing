@@ -33,23 +33,23 @@ class ContactHelper:
 
     def fill_contact_form(self, contact):
         self.change_field_value_in_contact("firstname", contact.firstname_of_contact)
-        # self.change_field_value_in_contact("middlename", contact.middlename_of_contact)
+        self.change_field_value_in_contact("middlename", contact.middlename_of_contact)
         self.change_field_value_in_contact("lastname", contact.lastname_of_contact)
-        # self.change_field_value_in_contact("nickname", contact.contactnickname)
-        # self.change_field_value_in_contact("title", contact.contacttittle)
-        # self.change_field_value_in_contact("company", contact.contactcompany)
+        self.change_field_value_in_contact("nickname", contact.contactnickname)
+        self.change_field_value_in_contact("title", contact.contacttittle)
+        self.change_field_value_in_contact("company", contact.contactcompany)
         self.change_field_value_in_contact("address", contact.contactaddress)
         self.change_field_value_in_contact("home", contact.homenumber)
-        # self.change_field_value_in_contact("mobile", contact.mobilenumber)
-        # self.change_field_value_in_contact("work", contact.worknumber)
-        # self.change_field_value_in_contact("fax", contact.contact_fax)
+        self.change_field_value_in_contact("mobile", contact.mobilenumber)
+        self.change_field_value_in_contact("work", contact.worknumber)
+        self.change_field_value_in_contact("fax", contact.contact_fax)
         self.change_field_value_in_contact("email", contact.contact_email)
-        # self.change_field_value_in_contact("email2", contact.contact_email2)
-        # self.change_field_value_in_contact("email3", contact.contact_email3)
-        # self.change_field_value_in_contact("homepage", contact.contact_homepage)
-        # self.change_field_value_in_contact("address2", contact.contact_address2)
-        # self.change_field_value_in_contact("phone2", contact.contact_phone2)
-        # self.change_field_value_in_contact("notes", contact.contact_notes)
+        self.change_field_value_in_contact("email2", contact.contact_email2)
+        self.change_field_value_in_contact("email3", contact.contact_email3)
+        self.change_field_value_in_contact("homepage", contact.contact_homepage)
+        self.change_field_value_in_contact("address2", contact.contact_address2)
+        self.change_field_value_in_contact("phone2", contact.contact_phone2)
+        self.change_field_value_in_contact("notes", contact.contact_notes)
 
     def select_first_contact(self):
         self.select_contact_by_index(0)
@@ -203,13 +203,13 @@ class ContactHelper:
         homenumber = re.search("H: (.*)", text).group(1) # (.*) - группа с произвольными символами до конца строки
                                                          # group()- method - Return the string matched by the RE
 
-        mobilenumber = re.search("M: (.*)", text).group(1)
-        worknumber = re.search("W: (.*)", text).group(1)
-        contact_phone2 = re.search("P: (.*)", text).group(1)
-        return Contact( homenumber=homenumber,
-                       mobilenumber=mobilenumber,
-                       worknumber=worknumber,
-                       contact_phone2=contact_phone2)
+        #mobilenumber = re.search("M: (.*)", text).group(1)
+        #worknumber = re.search("W: (.*)", text).group(1)
+        #contact_phone2 = re.search("P: (.*)", text).group(1)
+        return Contact( homenumber=homenumber)
+                      # mobilenumber=mobilenumber
+                      # worknumber=worknumber,
+                       #contact_phone2=contact_phone2)
 
     def delete_first_contact(self):
         self.delete_contact_by_index(0)

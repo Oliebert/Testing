@@ -1,15 +1,15 @@
 # метод извлекающий список контактов
 import pymysql.cursors
-from fixture.db import DbFixture
+from fixture.orm import ORMFixture
 
 
-db = DbFixture(host="127.0.0.1", name ="addressbook", user = "root", password="")
+db = ORMFixture(host="127.0.0.1", name ="addressbook", user = "root", password="")
 
 try: # для того чтобы выполнить запрос к базе данных, который создается при помощи метода connection
-    contacts = db.get_contact_list()
-    for contact in contacts:
-        print(contact)
-    print(len(contacts))
+    l = db.get_contact_list()
+    for item in l:
+        print(item)
+    print(len(l))
 
     '''
     groups = db.get_group_list()
@@ -24,5 +24,5 @@ try: # для того чтобы выполнить запрос к базе д
         print (row)
     '''
 finally:
-    db.destroy()
+    pass #db.destroy()
     #connection.close()
