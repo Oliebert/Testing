@@ -41,5 +41,29 @@ class DbFixture:
             cursor.close()
         return list
 
+    def phones_from_db(self):
+        phone_list = []
+        cursor = self.connection.cursor()
+        try:
+            cursor.execute("select home, mobile, work from addressbook where deprecated='0000-00-00 00:00:00'")
+            for row in cursor:
+                (home, mobile, work) = row
+                phone_list.append(Contact(homenumber=home, mobilenumber=mobile, worknumber=work ))
+        finally:
+            cursor.close()
+            return phone_list
+
+    def emails_from_db(self):
+        email_list = []
+        cursor = self.connection.cursor()
+        try:
+            cursor.execute("select email, email2, email3 from addressbook where deprecated='0000-00-00 00:00:00'")
+            for row in cursor:
+                (email, email2, email3) = row
+                email_list.append(Contact(contact_email=email, contact_email2=email2, contact_email3=email3))
+        finally:
+            cursor.close()
+            return email_list
+
     def destroy(self):
         self.connection.close()

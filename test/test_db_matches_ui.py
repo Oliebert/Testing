@@ -18,6 +18,6 @@ def test_group_list(app, db):
 а не для одной случайно выбранной. А сравнивать -- с информацией, загруженной из базы данных.'''
 
 def test_match_contacts_with_db(app, db):
-   contacts_list_from_db = db.get_contact_list()
+   contacts_list_from_db = sorted(db.get_contact_list(),key=Contact.id_or_max)
    contacts_list_from_ui = sorted(app.contact.get_contact_list(), key=Contact.id_or_max)
    assert contacts_list_from_db == contacts_list_from_ui

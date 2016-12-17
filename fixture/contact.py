@@ -82,7 +82,7 @@ class ContactHelper:
                 all_emails = cells[4].text
                 adress = cells[3].text
                 self.contact_cache.append(Contact(firstname_of_contact=firstname_of_contact, lastname_of_contact=lastname_of_contact, id=id,
-                                                homenumber = all_phones, contact_email=all_emails, contactaddress=adress))
+                                                all_phones = all_phones, all_emails=all_emails, contactaddress=adress))
 
         return list(self.contact_cache)
 
