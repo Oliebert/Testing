@@ -11,6 +11,7 @@ data_base = ORMFixture(host="127.0.0.1", name="addressbook", user="root", passwo
 
 Не забывайте про обеспечение выполнения предусловий.
 
+'''
 
 def test_adding_contact_to_group(app, db):
     if len(db.get_group_list()) == 0:  # создаем группу, если не существует
@@ -35,10 +36,6 @@ def test_adding_contact_to_group(app, db):
 
 
 
-
-'''
-
-
 def test_removing_contact_from_group(app, db):
     if len(db.get_group_list()) == 0:  # создаем группу, если не существует
         app.group.create(Group(name="group"))
@@ -53,7 +50,7 @@ def test_removing_contact_from_group(app, db):
     if contact_for_removing in contacts_in_group_before_removing:  # если контакт  в списке контактов выбранной группы, удаляем его  оттуда
         app.contact.remove_contact_from_group(contact_for_removing.id, group.id)
         contacts_in_group_after_removing = data_base.get_contacts_in_group(Group(id=group.id))  # получаем список контактов выбраной группы после удаления контакта
-        assert len(contacts_in_group_before_removing) == len(contacts_in_group_after_removing) - 1
+        assert len(contacts_in_group_before_removing) == len(contacts_in_group_after_removing) + 1
         assert contact_for_removing not in contacts_in_group_after_removing
     else:
         print("The contact is already removed")

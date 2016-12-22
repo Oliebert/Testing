@@ -250,7 +250,7 @@ class ContactHelper:
     def remove_contact_from_group (self,contacts_id, groups_id):
         wd = self.app.wd
         self.open_contact_page()
-        wd.find_element_by_xpath("//form[@id='right']/select//option[@value='%s']" % groups_id) # выбирается группа в выпадающем списке
+        wd.find_element_by_xpath("//form[@id='right']/select//option[@value='%s']" % groups_id).click() # выбирается группа в выпадающем списке
         wd.find_element_by_xpath("//input[@id='%s']" % contacts_id).click() #выбирается удаляемый контакт
         #wd.find_element_by_css_selector("input[value='Remove from'%s']" % groups_id).click()
         wd.find_element_by_name("remove").click() # нажимается кнопка удаления контакта
