@@ -237,3 +237,25 @@ class ContactHelper:
         # confirm deletion
         wd.switch_to_alert().accept()  # клик на форму подтверждающую удаление контакта
         self.contact_cache = None
+
+    def add_contact_to_group(self, contacts_id, groups_id):
+        wd = self.app.wd
+        self.open_contact_page()
+        self.select_contact_by_id(contacts_id)
+        #wd.find_element_by_xpath("//input[@id='%s']"% groups_id).click() # не надежный
+        wd.find_element_by_xpath("//select[@name='to_group']/option[@value='%s']" % groups_id).click()
+        wd.find_element_by_name("add").click()
+        self.open_contact_page()
+
+    def remove_contact_from_group (self,contacts_id, groups_id):
+        wd = self.app.wd
+        self.open_contact_page()
+        self.select_contact_by_id(contacts_id)
+
+        wd.find_element_by_xpath("//form[@id='right']/select//option[@value='%s']" % groups_id)
+        self.select_contact_by_id(contacts_id)
+        wd.find_element_by_css_selector("input[value='Remove from'%s']" % groups_id).click()
+       # wd.find_element_by_name("remove").click()
+        self.open_contact_page()
+
+

@@ -11,7 +11,7 @@ def test_phones_on_contact_view_page(app):
     index = randrange(len(contacts))
     contact_from_view_page = app.contact.get_conact_from_view_page(index)                  # получаем список первого контакта
     contact_from_edit_page = app.contact.get_conact_info_from_edit_page(index)
-    assert contact_from_view_page.homenumber == contact_from_edit_page.homenumber
+    assert contact_from_view_page.all_phones == contact_from_edit_page.all_phones
    # assert contact_from_view_page.worknumber == contact_from_edit_page.worknumber
     #assert contact_from_view_page.mobilenumber == contact_from_edit_page.mobilenumber
     #assert contact_from_view_page.contact_phone2 == contact_from_edit_page.contact_phone2
