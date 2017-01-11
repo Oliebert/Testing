@@ -4,11 +4,20 @@ from datetime import datetime
 from model.group import Group
 from model.contact import Contact
 from pymysql.converters import encoders, decoders, convert_mysql_timestamp
+'''Object Relational Mapping-инструмент, помогающий установить отношение между классами, написанными на языке программирования и таблицами базы данных'''
 
 
 class ORMFixture:
 
     db = Database() #объект на основании которого мы будем строить привязку
+
+    def __init__(self, host, name, user, password):
+        conv = encoders
+        conv.update(decoders)
+        conv[datetime] = convert_mysql_timestamp
+        self.db.bind('mysql', host=host, database=name, user=user, password=password, conv=conv)  # привязка  к бд
+        self.db.generate_mapping()  # сопоставление описанных классов со свойствами таблиц
+        sql_debug(True)
 
     class ORMGroup(db.Entity): # привязка описывается набором класса. описываем набор свойств и привязываем их к таблице
         _table_= 'group_list'
@@ -20,19 +29,11 @@ class ORMFixture:
 
     class ORMContact(db.Entity):
         _table_ = 'addressbook'
-        id = PrimaryKey(int,column='id')  # int- тип поля в базе данных, переменные не совпадают с названием столбцов где они хранятся, поэтому добавляем column
+        id = PrimaryKey(int, column='id')  # int- тип поля в базе данных, переменные не совпадают с названием столбцов где они хранятся, поэтому добавляем column
         firstname = Optional(str, column='firstname')  #
         lastname = Optional(str, column='lastname')
         deprecated = Optional(datetime,column='deprecated')
         groups = Set(lambda:ORMFixture.ORMGroup, table ="address_in_groups", column="group_id", reverse="contacts", lazy=True )
-
-    def __init__(self,host, name, user, password):
-        conv = encoders
-        conv.update(decoders)
-        conv[datetime] = convert_mysql_timestamp
-        self.db.bind('mysql', host=host, database=name, user=user, password=password, conv=conv)# привязка  к бд
-        self.db.generate_mapping() # сопоставление описанных классов со свойствами таблиц
-        sql_debug(True)
 
     def convert_groups_to_model(self, groups):# преобразуем полученные объекты ORM в объекты, описанные в нашей model
         def convert(group):

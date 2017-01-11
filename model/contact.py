@@ -31,9 +31,9 @@ class Contact:
         self.all_phones = all_phones
         self.all_emails = all_emails
 
-    def __repr__(self):
+    def __repr__(self):  # метод получения строкового представления объекта
 
-        return "%s : %s : %s :%s : %s : %s : %s : %s" % (self.id, self.firstname_of_contact, self.lastname_of_contact,self.homenumber,
+        return "%s : %s : %s :%s : %s : %s : %s : %s " % (self.id, self.firstname_of_contact, self.lastname_of_contact,self.homenumber,
                                                          self.contact_email,self.contactaddress, self.all_emails, self.all_phones  )
 
 

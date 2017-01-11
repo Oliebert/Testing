@@ -13,6 +13,7 @@ data_base = ORMFixture(host="127.0.0.1", name="addressbook", user="root", passwo
 
 '''
 
+
 def test_adding_contact_to_group(app, db):
     if len(db.get_group_list()) == 0:  # создаем группу, если не существует
         app.group.create(Group(name="group"))
@@ -32,8 +33,6 @@ def test_adding_contact_to_group(app, db):
         assert contact_for_adding in contacts_in_group_after_adding
     else:
         print("The contact is already there")
-
-
 
 
 def test_removing_contact_from_group(app, db):
