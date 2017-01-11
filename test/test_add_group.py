@@ -2,6 +2,7 @@
 from model.group import Group
 #import pytest
 #from data.groups import constant as testdata
+import pytest
 
 
 #@pytest.mark.parametrize("group", testdata, ids = [repr(x) for x in testdata] )  # ids- список с текстовым представлением данных (преобразование в строки )
@@ -11,21 +12,27 @@ def test_add_group(app, db, json_groups, check_ui):             # парамет
 
     group = json_groups
 
-    old_groups=db.get_group_list()
+    with pytest.allure.step("Given a group list"):
 
-    app.group.create(group)
+        old_groups=db.get_group_list()
 
-    assert len(old_groups)+1 == app.group.count()                                                 #count() - хэш функция
+    with pytest.allure.step("When I add a group %s to the list" % group):
 
-    new_groups = db.get_group_list()
+        app.group.create(group)
 
-    old_groups.append(group)
+    #assert len(old_groups)+1 == app.group.count()                                                 #count() - хэш функция
 
-    assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)
+    with pytest.allure.step('Then the new group list is equal to the old list with the added group'):
 
-    if check_ui :
+        new_groups = db.get_group_list()
 
-        assert sorted(new_groups, key= Group.id_or_max) == sorted(app.group.get_group_list(),key= Group.id_or_max)
+        old_groups.append(group)
+
+        assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)
+
+    #if check_ui :
+
+       # assert sorted(new_groups, key= Group.id_or_max) == sorted(app.group.get_group_list(),key= Group.id_or_max)
 
 
 '''def test_add_empty_group(app):

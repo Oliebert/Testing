@@ -1,0 +1,44 @@
+{
+  "uid" : "4af03447310c5427",
+  "name" : "test_add_group[None : name54en29OD : headerHx7bdpUh5RZb0 : footereu2GcJ9wcRC]",
+  "title" : "Test add group [None : name54en29OD : headerHx7bdpUh5RZb0 : footereu2GcJ9wcRC]",
+  "time" : {
+    "start" : 1484172329996,
+    "stop" : 1484172331466,
+    "duration" : 1470
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 0
+  },
+  "failure" : null,
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "testId" : null,
+  "suite" : {
+    "uid" : "774cc5ab439ef1ca",
+    "name" : "test.test_add_group",
+    "title" : "Test add group"
+  },
+  "steps" : [ ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "labels" : [ {
+    "name" : "thread",
+    "value" : "216-MainThread"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-D3D9ABK"
+  }, {
+    "name" : "suite-name",
+    "value" : "test.test_add_group"
+  } ],
+  "parameters" : [ ]
+}

@@ -1,0 +1,89 @@
+{
+  "uid" : "6dc6e285883500ef",
+  "name" : "test_add_group[None : namezwBpo9w : header1puxb1YJ0DMbmBC : footerZBYK907EbA]",
+  "title" : "Test add group [None : namezwBpo9w : header1puxb1YJ0DMbmBC : footerZBYK907EbA]",
+  "time" : {
+    "start" : 1484174081970,
+    "stop" : 1484174083609,
+    "duration" : 1639
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 3
+  },
+  "failure" : null,
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "testId" : null,
+  "suite" : {
+    "uid" : "95948c5accc0ee8e",
+    "name" : "test.test_add_group",
+    "title" : "Test add group"
+  },
+  "steps" : [ {
+    "name" : "Given a group list",
+    "title" : "Given a group list",
+    "time" : {
+      "start" : 1484174082176,
+      "stop" : 1484174082177,
+      "duration" : 1
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "When I add a group None : namezwBpo9w : header1puxb1YJ0DMbmBC : footerZBYK907EbA to the list",
+    "title" : "When I add a group None : namezwBpo9w : header1puxb1YJ0DMbmBC : footerZBYK907EbA to the list",
+    "time" : {
+      "start" : 1484174082177,
+      "stop" : 1484174083605,
+      "duration" : 1428
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "Then the new group list is equal to the old list with the added group",
+    "title" : "Then the new group list is equal to the old list with the added group",
+    "time" : {
+      "start" : 1484174083605,
+      "stop" : 1484174083609,
+      "duration" : 4
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  } ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "labels" : [ {
+    "name" : "thread",
+    "value" : "8076-MainThread"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-D3D9ABK"
+  }, {
+    "name" : "suite-name",
+    "value" : "test.test_add_group"
+  } ],
+  "parameters" : [ ]
+}
